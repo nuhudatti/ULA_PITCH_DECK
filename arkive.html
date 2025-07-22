@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5IRE Team - The Architects of Africa's Digital Renaissance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Poppins:wght@400;600;700&display=swap');
+          /* Navigation Styles */
+             :root {
+            --ntida-blue: #1e3a8a;
+            --ntida-light: #2563eb;
+            --ntida-gold: #d4af37;
+            --ntida-emerald: #10b981;
+        }
+        .team-card {
+            perspective: 1000px;
+            height: 400px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .team-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #D4AF37 0%, #F9D423 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .islamic-pattern-bg {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none" stroke="%23D4AF37" stroke-width="0.5" stroke-opacity="0.2"/><circle cx="50" cy="50" r="40" fill="none" stroke="%23D4AF37" stroke-width="0.5" stroke-opacity="0.2"/></svg>');
+            background-size: 100px 100px;
+        }
+         nav {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    /* Desktop Navigation Links */
+    nav a {
+        color: var(--ntida-blue);
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--ntida-light);
+    }
+
+    /* Active Link Indicator */
+    nav a:hover::after,
+    nav a:focus::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--ntida-gold);
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* Active Link Indicator */
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ntida-gold);
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+    /* Apply Now Button */
+    nav .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+    }
+
+    nav .apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.15);
+        background: linear-gradient(135deg, var(--ntida-light) 0%, var(--ntida-blue) 100%);
+    }
+
+    /* Mobile Menu Toggle */
+    #menu-toggle {
+        transition: all 0.3s ease;
+        color: var(--ntida-blue);
+    }
+
+    #menu-toggle:hover {
+        color: var(--ntida-light);
+        transform: scale(1.1);
+    }
+
+    /* Mobile Menu */
+    #mobile-menu {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(30, 58, 138, 0.1);
+    }
+
+    #mobile-menu a {
+        color: var(--ntida-blue);
+        transition: all 0.2s ease;
+        padding: 12px 0;
+    }
+
+    #mobile-menu a:hover {
+        color: var(--ntida-light);
+        transform: translateX(4px);
+    }
+
+    #mobile-menu .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        margin-top: 8px;
+    }
+
+    /* Backdrop */
+    .backdrop {
+        background: rgba(30, 58, 138, 0.2);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* Active State for Mobile Menu */
+    #mobile-menu.open a:hover::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--ntida-gold);
+    }
+    
+        /* NAV */
+        /* Add these styles to your existing CSS */
+        #mobile-menu {
+            position: fixed;
+            top: 68px; /* Height of your navbar */
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .backdrop {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+   
+    </style>
+</head>
+<body class="bg-black text-white font-['Poppins']">
+    <!-- Updated Navbar -->
+    <nav class=" bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] backdrop-blur-md border-b border-gray-200 py-3 px-6 flex justify-between items-center sticky top-0 z-50">
+         <div class="flex items-center space-x-2">
+                <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">5IRE</h1>
+                    <p class="text-xs text-cyan-300">Universal Learning Archive</p>
+                </div>
+            </div>
+        <div class="flex items-center">
+            <span class="hidden md:inline-block text-sm font-bold bg-blue-100 text-white px-3 py-1 rounded-full">ULA v1.0</span>
+        </div>
+        
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+            <a href="./home_demo.html" class="hover:text-amber-300 text-cyan-300 transition">Platform</a>
+                <a href="./wdemo.html" class="hover:text-amber-300 text-cyan-300 transition">Demo</a>
+                <a href="#" class="hover:text-amber-300 text-cyan-300 transition active">Partners</a>
+                <a href="./partner.html" class="hover:text-amber-300 text-cyan-300 transition">Join Project</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="./partner.html" class="hidden md:inline-block px-6 py-2 bg-yellow-400 hover:bg-yellow-300 text-white font-semibold hover:bg-blue-700 text-white font-medium rounded-lg transition">Apply Now</a>
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+               <i class="fas fa-bars text-4xl text-yellow-400 hover:text-yellow-300 transition duration-300" id="menu-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="backdrop" class="backdrop"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="./home_demo.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link active">Platform</a>
+            <a href="./wdemo.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Demo</a>
+            <a href="./arkive.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link active">Parteners</a>
+            <a href="#" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Join Project</a>
+            <a href="./partner.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition text-center mt-2 mobile-link">Apply Now</a>
+        </div>
+    </div>
+
+    <!-- Team Header -->
+    <section class="py-20 px-6 text-center bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-['Amiri'] gold-gradient-text">
+                The 5IRE Architects
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12">
+                <span class="border-b-4 border-yellow-500">Student builders</span> crafting Africa's blockchain future—one smart contract at a time
+            </p>
+            <div class="bg-yellow-500 bg-opacity-20 p-4 rounded-lg border-l-4 border-yellow-500 max-w-2xl mx-auto">
+                <p class="italic">
+                    "We're not waiting for permission to build the future. The revolution starts here."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Grid - 3D Flip Cards -->
+    <section class="py-12 px-6 islamic-pattern-bg">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Nuhu Muhammad Datti - Founder Card -->
+                 <!-- Nuhu Muhammad Datti - Founder Card -->
+            <div class="team-card founder-card">
+                <div class="card-inner">
+                    <!-- Front - The Visionary -->
+                    <div class="card-front bg-gradient-to-br from-gray-900 to-[#0a2e38] p-8 flex flex-col justify-center items-center text-center border-2 border-emerald-500/30 hover:border-emerald-500/80 transition-all duration-500">
+                        <!-- Cosmic Islamic Pattern -->
+                        <div class="absolute inset-0 cosmic-pattern opacity-15"></div>
+                        
+                        <img src="../imgs/datti4.png" alt="Nuhu Muhammad Datti" class="w-32 h-32 rounded-full border-4 border-emerald-500 mb-6 z-10 glow-emerald">
+                        <h3 class="text-2xl font-bold mb-2 text-white z-10">Nuhu Muhammad Datti</h3>
+                        <p class="text-emerald-400 mb-4 font-medium z-10">Founder & Pathbuilder</p>
+                        <div class="text-gray-300 z-10">
+                            <p>IBBUL Visionary</p>
+                            <p>Documentation Revolutionary</p>
+                        </div>
+                        <div class="mt-6 flex flex-col items-center z-10">
+                            <p class="text-xs text-emerald-400 mb-1 animate-pulse">CLICK TO SEE THE VISION</p>
+                            <div class="text-2xl text-emerald-400 bounce-arrow">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Back - The Movement -->
+                    <div class="card-back bg-gradient-to-br from-[#0a2e38] to-[#0d1117] p-8 flex flex-col justify-center border-2 border-amber-500/50 hover:border-amber-500/80 transition-all duration-500">
+                        <!-- Constellation Pattern -->
+                        <div class="absolute inset-0 constellation-pattern opacity-10"></div>
+                        
+                        <h3 class="text-2xl font-bold mb-4 text-center" style="background: linear-gradient(135deg, #10B981 0%, #F59E0B 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                            Building The Arkive
+                        </h3>
+                        
+                        <div class="mb-6 space-y-4 z-10">
+                            <div class="flex items-start">
+                                <div class="text-amber-400 mr-3 text-xl mt-1">
+                                    <i class="fas fa-book-open text-yellow-400 mt-1 mr-3"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">Current Documentation</p>
+                                    <ul class="text-gray-300 text-sm list-disc pl-5 mt-1 space-y-1">
+                                        <li>Python Beginner <span class="text-emerald-400">(Completed)</span></li>
+                                        <li>Python Advanced <span class="text-amber-400">(In Progress)</span></li>
+                                        <li>Express.js <span class="text-blue-400">(Ongoing)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-emerald-400 mr-3 text-xl mt-1">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-white">Mid-Term Mission</p>
+                                    <p class="text-gray-300 text-sm">Universal Learning Archive for Nigerian universities</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto z-10">
+                            <div class="bg-black/40 p-3 rounded-lg border border-amber-500/20">
+                                <p class="text-amber-300 italic text-sm">"We're not just building skills - we're building leaders who will build nations."</p>
+                            </div>
+                            <p class="text-right text-xs text-emerald-400 mt-2 font-mono">#BornToBuild</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Elona - Visionary Card -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front - Visionary Identity -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-purple-500 border-opacity-30">
+                            <img src="../imgs/elona.png" alt="sunBea 'Elona'" class="w-32 h-32 rounded-full border-4 border-purple-500 mt-8 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Fatima Muhammad Alkali</h3>
+                            <p class="text-purple-400 mb-4">Visionary Futurist</p>
+                            <div class="text-gray-400">
+                                <p>NITDA/NCAIR Innovator</p>
+                                <p>Elon Musk's Coming Rival</p>
+                            </div>
+                            <div class="mt-6 flex flex-col items-center">
+                                <p class="text-xs text-purple-400 mb-1">CLICK TO SEE GENIUS</p>
+                                <div class="animate-bounce text-2xl text-purple-400">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Back - Visionary's Impact -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-purple-900 p-8 flex flex-col justify-center border-2 border-purple-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                The Future Embodied
+                            </h3>
+                            
+                            <div class="mb-6 space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-brain text-purple-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Visionary Traits</p>
+                                        <ul class="text-gray-300 text-sm list-disc pl-5 mt-1">
+                                            <li>Prototypes solutions before problems are framed</li>
+                                            <li>Thinks 5 years ahead of industry</li>
+                                            <li>Redefines African tech potential</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-rocket text-purple-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Datti's Testimonial</p>
+                                        <p class="text-gray-300 text-sm italic">"While I dream of continent-wide evolution, she prototypes answers to problems I haven't framed yet."</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <div class="bg-black bg-opacity-40 p-3 rounded-lg">
+                                    <p class="text-purple-300 italic text-sm">"In this movement, I follow her light - she makes today's tech giants look like stepping stones."</p>
+                                </div>
+                                <p class="text-right text-xs text-purple-400 mt-2">- 5IRE Arkive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+<style>
+    /* Cosmic Islamic Pattern */
+    .cosmic-pattern {
+        background-image: 
+            radial-gradient(circle at 20% 30%, rgba(16, 185, 129, 0.1) 0%, transparent 25%),
+            url("./imgs/datti3.png");
+        background-size: 100px 100px, 100px 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    /* Constellation Pattern */
+    .constellation-pattern {
+        background-image: 
+            radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 25%),
+            url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='0.8' fill='%23F59E0B'/%3E%3Ccircle cx='50' cy='30' r='0.6' fill='%23F59E0B'/%3E%3Ccircle cx='80' cy='20' r='1' fill='%23F59E0B'/%3E%3Ccircle cx='30' cy='70' r='0.7' fill='%23F59E0B'/%3E%3Ccircle cx='70' cy='80' r='0.9' fill='%23F59E0B'/%3E%3C/svg%3E");
+        background-size: 100px 100px;
+    }
+
+    /* Special Glow Effect */
+    .glow-emerald {
+        box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+    }
+
+    /* Bouncing Arrow */
+    .bounce-arrow {
+        animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+        40% {transform: translateY(-10px);}
+        60% {transform: translateY(-5px);}
+    }
+
+    /* Founder Card Special Sizing */
+    .founder-card {
+        perspective: 1000px;
+        height: 420px; /* Slightly taller */
+    }
+    .founder-card .card-front,
+    .founder-card .card-back {
+        border-radius: 16px;
+    }
+</style>
+                <!-- 6. Ahmad Isah Hamza -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-red-500 border-opacity-30">
+                            <img src="../imgs/killar.png" alt="Ahmad Isah" class="w-32 h-32 rounded-full border-4 border-red-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Ahmad Isah Hamza</h3>
+                            <p class="text-red-400 mb-4">AI Future Builder</p>
+                            <div class="text-gray-400">
+                                <p>Python Machine Learning</p>
+                                <p>Backend Development</p>
+                            </div>
+                            <!-- Improved Arrow Indicator -->
+                            <div class="mt-6 flex flex-col items-center ">
+                                <p class="text-xs text-red-400 mb-1">CLICK TO EXPLORE</p>
+                                <div class="animate-bounce text-2xl text-gray-300 text-red-400" >
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-6 text-red-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                        </div>
+                        
+                        <!-- Back -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-red-900 p-8 flex flex-col justify-center border-2 border-red-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #EF4444 0%, #FCA5A5 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                Specialization Path
+                            </h3>
+                            
+                            <div class="mb-6">
+                                <div class="flex items-start mb-4">
+                                    <i class="fas fa-brain text-red-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Machine Learning</p>
+                                        <p class="text-gray-300 text-sm">Foundational algorithms & models</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-server text-red-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Backend Systems</p>
+                                        <p class="text-gray-300 text-sm">Building scalable infrastructure</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <p class="text-red-300">"The future belongs to those who <span class="font-bold">teach machines to learn</span>"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mohammed Haruna -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front of Card -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-yellow-500 border-opacity-30">
+                            <img src="../imgs/Muhammmad.png" alt="Mohammed Haruna" class="w-32 h-32 rounded-full border-4 border-yellow-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Mohammed Haruna</h3>
+                            <p class="text-yellow-400 mb-4">Blockchain Alchemist</p>
+                            <div class="text-gray-400">
+                                <p>CoLab Innovation Campus</p>
+                                <p>Full-Stack Web3 Developer</p>
+                            </div>
+                            <!-- Improved Arrow Indicator -->
+                            <div class="mt-6 flex flex-col items-center">
+                                <p class="text-xs text-gray-400 mb-1">CLICK TO EXPLORE</p>
+                                <div class="animate-bounce text-2xl" style="color: inherit;">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-6 text-yellow-500 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                        </div>
+                        
+                        <!-- Back of Card -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-gray-900 p-8 flex flex-col justify-center border-2 border-green-500">
+                            <h3 class="text-2xl font-bold mb-4 gold-gradient-text">Blockchain Journey</h3>
+                            <ul class="text-left space-y-3 mb-6 text-gray-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Built ERC-721 (NFT) & ERC-20 contracts</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Developed staking protocols</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Full-stack dApp integration</span>
+                                </li>
+                            </ul>
+                            <div class="mt-auto">
+                                <p class="text-yellow-400 font-bold mb-2">Current Focus:</p>
+                                <p class="text-gray-300">Bridging smart contracts with real-world applications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add this card to the team grid section -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front of Card -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-blue-500 border-opacity-30">
+                            <img src="https://via.placeholder.com/150" alt="Abdulrahman Bashir" class="w-32 h-32 rounded-full border-4 border-blue-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Abdulrahman Bashir</h3>
+                            <p class="text-blue-400 mb-4">Startup Catalyst</p>
+                            <div class="text-gray-400">
+                                <p>Serial Entrepreneur</p>
+                                <p>Data & Systems Architect</p>
+                            </div>
+                            <!-- <div class="mt-6 text-blue-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                            <!-- Improved Arrow Indicator -->
+                        <div class="mt-6 flex flex-col items-center">
+                            <p class="text-xs text-gray-400 mb-1">CLICK TO EXPLORE</p>
+                            <div class="animate-bounce text-2xl" style="color: inherit;">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                        </div>
+                        </div>
+                        
+                        <!-- Back of Card - Startup Focus -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-blue-900 p-8 flex flex-col justify-center border-2 border-blue-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #3B82F6 0%, #93C5FD 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                Startup Portfolio
+                            </h3>
+                            
+                            <div class="mb-6">
+                                <p class="text-blue-300 font-semibold mb-2">Current Focus:</p>
+                                <ul class="text-left space-y-2 text-gray-300">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-database text-blue-400 mt-1 mr-3"></i>
+                                        <span>Advanced Data Analysis</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-sliders-h text-blue-400 mt-1 mr-3"></i>
+                                        <span>System Configuration</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-project-diagram text-blue-400 mt-1 mr-3"></i>
+                                        <span>Project Lifecycle Management</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <p class="text-blue-300 font-semibold mb-2">Startup Philosophy:</p>
+                                <p class="text-gray-300 italic">"Building with <span class="text-blue-400">scalable systems</span> from day one - because Africa's solutions deserve world-class architecture."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add these cards to the team grid section -->
+
+                <!-- 3. Saidu Al-amin Hassan -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-purple-500 border-opacity-30">
+                            <img src="../imgs/al_amin.png" alt="Saidu Al-amin" class="w-32 h-32 rounded-full border-4 border-purple-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Saidu Al-amin Hassan</h3>
+                            <p class="text-purple-400 mb-4">Digital Experience Architect</p>
+                            <div class="text-gray-400">
+                                <p>National Hybrid SIWES</p>
+                                <p>Web & UI/UX Designer</p>
+                            </div>
+                            <!-- <div class="mt-6 text-purple-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                            <!-- Improved Arrow Indicator -->
+                            <div class="mt-6 flex flex-col items-center">
+                                <p class="text-xs text-gray-400 mb-1">CLICK TO EXPLORE</p>
+                                <div class="animate-bounce text-2xl" style="color: inherit;">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Back -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-purple-900 p-8 flex flex-col justify-center border-2 border-purple-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #8B5CF6 0%, #C4B5FD 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                Active Projects
+                            </h3>
+                            
+                            <ul class="space-y-4 mb-6">
+                                <li class="flex items-start">
+                                    <span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3">🥊</span>
+                                    <div>
+                                        <p class="font-semibold">SIWES Intern Portal</p>
+                                        <p class="text-gray-300 text-sm">Streamlining intern workflows</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3">🎯</span>
+                                    <div>
+                                        <p class="font-semibold">Course Handouts Hub</p>
+                                        <p class="text-gray-300 text-sm">Computer Science resource portal</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="bg-purple-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3">🎯</span>
+                                    <div>
+                                        <p class="font-semibold">Online Voting System</p>
+                                        <p class="text-gray-300 text-sm">Secure digital elections</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-auto">
+                                <p class="text-purple-300 italic">"Solving real campus problems through clean interfaces"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Umar Faruq Yusuf -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-green-500 border-opacity-30">
+                            <img src="../imgs/umar.png" alt="Umar Faruq" class="w-32 h-32 rounded-full border-4 border-green-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Umar Faruq Yusuf</h3>
+                            <p class="text-green-400 mb-4">Frontend Alchemist</p>
+                            <div class="text-gray-400">
+                                <p>Web Development Pathfinder</p>
+                                <p>Upay Founder</p>
+                            </div>
+                            <!-- Improved Arrow Indicator -->
+                            <div class="mt-6 flex flex-col items-center">
+                                <p class="text-xs text-gray-400 mb-1">CLICK TO EXPLORE</p>
+                                <div class="animate-bounce text-2xl" style="color: inherit;">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-6 text-green-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                            
+                        </div>
+                        
+                        <!-- Back -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-green-900 p-8 flex flex-col justify-center border-2 border-green-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #10B981 0%, #A7F3D0 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                Tech Stack Journey
+                            </h3>
+                            
+                            <div class="mb-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="w-1/3 text-sm font-medium">HTML</span>
+                                    <div class="w-2/3 bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center mb-3">
+                                    <span class="w-1/3 text-sm font-medium">CSS</span>
+                                    <div class="w-2/3 bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 50%"></div>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="w-1/3 text-sm font-medium">JavaScript</span>
+                                    <div class="w-2/3 bg-gray-700 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <p class="text-green-300 font-semibold">Upay Platform:</p>
+                                <p class="text-gray-300 text-sm">Safe transactions + live markets from home</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Hauwa Ibrahim -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-pink-500 border-opacity-30">
+                            <img src="../imgs/jidda.png" alt="Hauwa Ibrahim" class="w-32 h-32 rounded-full border-4 border-pink-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Hauwa Ibrahim</h3>
+                            <p class="text-pink-400 mb-4">Rising Full-Stack Star</p>
+                            <div class="text-gray-400">
+                                <p>Web Development Beginner</p>
+                                <p>Database Explorer</p>
+                            </div>
+                            <!-- Improved Arrow Indicator -->
+                            <div class="mt-6 flex flex-col items-center">
+                                <p class="text-xs text-gray-400 mb-1">CLICK TO EXPLORE</p>
+                                <div class="animate-bounce text-2xl" style="color: inherit;">
+                                    <i class="fas fa-arrow-down"></i>
+                                </div>
+                            </div>
+                            <!-- <div class="mt-6 text-pink-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div> -->
+                        </div>
+                        
+                        <!-- Back -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-pink-900 p-8 flex flex-col justify-center border-2 border-pink-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #EC4899 0%, #FBCFE8 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                Growth Trajectory
+                            </h3>
+                            
+                            <div class="mb-6 space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-laptop-code text-pink-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Web Foundations</p>
+                                        <p class="text-gray-300 text-sm">Building first responsive pages</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-database text-pink-400 mt-1 mr-3"></i>
+                                    <div>
+                                        <p class="font-semibold">Database Basics</p>
+                                        <p class="text-gray-300 text-sm">Learning data structures & SQL</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <p class="text-pink-300 italic">"YOU WIN WITH US OR YOU WATCH US WIN"</p>
+                                <p class="text-gray-300 text-sm mt-2">Future goal: Student-focused learning portal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Usman Ayuba Zago - EduTrack Project -->
+                <div class="team-card">
+                    <div class="card-inner">
+                        <!-- Front - Developer Profile -->
+                        <div class="card-front bg-gradient-to-br from-gray-900 to-black p-8 flex flex-col justify-center items-center text-center border-2 border-blue-500 border-opacity-30">
+                            <img src="../imgs/zago.png" alt="Usman Ayuba Zago" class="w-32 h-32 rounded-full border-4 border-blue-500 mb-6">
+                            <h3 class="text-2xl font-bold mb-2">Usman Ayuba Zago</h3>
+                            <p class="text-blue-400 mb-4">Web Developer in Training</p>
+                            <div class="text-gray-400">
+                                <p>SIWES Intern</p>
+                                <p>Frontend Specialist</p>
+                            </div>
+                            <div class="mt-6 text-blue-400 text-2xl">
+                                <i class="fas fa-arrow-right"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Back - EduTrack Project -->
+                        <div class="card-back bg-gradient-to-br from-gray-800 to-blue-900 p-8 flex flex-col justify-center border-2 border-green-500">
+                            <h3 class="text-2xl font-bold mb-4" style="background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                                EduTrack Journey
+                            </h3>
+                            
+                            <ul class="text-left space-y-3 mb-6 text-gray-300">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Educational web platform for students</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Materials access & project submission</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-400 mt-1 mr-3"></i>
+                                    <span>Login system with dual dashboards</span>
+                                </li>
+                            </ul>
+                            
+                            <div class="mt-auto">
+                                <p class="text-blue-400 font-bold mb-2">Current Focus:</p>
+                                <p class="text-gray-300">Building responsive UI with HTML/CSS (Homepage, Login, Dashboard)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- [Add More Team Members Following Same Structure] -->
+                <!-- Template for New Members -->
+                <!-- End Template -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy Statement -->
+    <section class="py-20 px-6 bg-black text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-6xl mb-8 gold-gradient-text">
+                <i class="fas fa-quote-left"></i>
+            </div>
+            <blockquote class="text-2xl md:text-3xl font-bold mb-10 leading-relaxed">
+                "We document what others discard. We build what others postpone. This is how <span class="gold-gradient-text">student movements become revolutions</span>."
+            </blockquote>
+            <div class="flex justify-center">
+                <img src="../imgs/build_to_last.jpg" alt="5IRE Logo" class="w-24 h-24 rounded-full border-4 border-yellow-500">
+            </div>
+            <p class="mt-4 font-bold gold-gradient-text">The 5IRE Movement</p>
+            <p class="text-gray-400">Born to Build. Born to Last.</p>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="py-16 px-6 bg-gradient-to-r from-yellow-900 to-black">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8">
+                <span class="gold-gradient-text">Ready to etch your name in this legacy?</span>
+            </h2>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="../partner.html" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-fire mr-2"></i> Join Our Builders
+                </a>
+                <!-- <a href="#" class="border-2 border-yellow-500 hover:bg-yellow-500 hover:bg-opacity-10 font-bold py-4 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    <i class="fas fa-eye mr-2"></i> View Our Projects
+                </a> -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 bg-black text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-5xl mb-6 gold-gradient-text">
+                <i class="fas fa-fire"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">
+                <span class="gold-gradient-text">5th Industrial Revolution</span>
+            </h3>
+            <p class="text-gray-400 mb-6">A student-led movement rewriting Africa's tech destiny</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-2xl hover:text-yellow-500 transition duration-300">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-yellow-500 transition duration-300">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-yellow-500 transition duration-300">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p class="text-gray-600">© 2025 - ∞ | All Rights Reserved | "From Students, For Civilization"</p>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-8 right-8 opacity-0 invisible transition-all duration-500 z-50">
+    <div class="relative group">
+        <!-- Main Button -->
+        <div class="w-14 h-14 bg-gradient-to-br from-yellow-600 to-yellow-400 rounded-full shadow-lg flex items-center justify-center transform group-hover:rotate-[360deg] transition-transform duration-700">
+            <i class="fas fa-arrow-up text-white text-xl"></i>
+        </div>
+        
+        <!-- Islamic Pattern Circle -->
+        <div class="absolute inset-0 islamic-pattern-circle opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <!-- Pulse Animation -->
+        <div class="absolute inset-0 border-2 border-yellow-400 rounded-full animate-ping opacity-0 group-hover:opacity-30 duration-1000"></div>
+    </div>
+</button>
+
+<style>
+    
+    /* Islamic Pattern for Button */
+    .islamic-pattern-circle {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='white' stroke-width='1'/%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+        background-size: 60px 60px;
+        background-position: center;
+    }
+
+    /* Scroll Appearance Animation */
+    #backToTop.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    #backToTop.hide {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    /* Custom Pulse Animation */
+    @keyframes pulse-gold {
+        0% { transform: scale(0.95); opacity: 0.5; }
+        70% { transform: scale(1.1); opacity: 0.2; }
+        100% { transform: scale(0.95); opacity: 0; }
+    }
+    .animate-ping {
+        animation: pulse-gold 2s infinite;
+    }
+</style>
+
+<script>
+     // NAV
+         // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('backdrop');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const body = document.body;
+
+        // Toggle menu function
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            backdrop.classList.toggle('open');
+            body.classList.toggle('menu-open');
+            
+            // Change icon
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on links
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                toggleMenu();
+            }
+        });
+
+        // Your existing particle effect code
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+        // Floating particles effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+    // Show/hide on scroll
+    window.addEventListener('scroll', function() {
+        const backToTop = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            backToTop.classList.remove('hide');
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+            backToTop.classList.add('hide');
+        }
+    });
+
+    // Smooth scroll to top
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+</script>
+<!-- Back Button with Enhanced Animations -->
+<!-- Back Button with Enhanced Animations -->
+<a href="./home_demo.html" 
+   id="backButton"
+   class="fixed bottom-6 left-6 z-50 opacity-0 invisible transition-all duration-500 transform translate-y-6 group">
+   
+    <!-- Button Container -->
+    <div class="relative flex items-center space-x-3">
+        <!-- Animated Circle -->
+        <div class="w-14 h-14 bg-gradient-to-br from-yellow-600 to-yellow-400 rounded-full shadow-xl flex items-center justify-center transition-all duration-700 group-hover:bg-yellow-500 group-hover:shadow-gold-lg">
+            <!-- Islamic Pattern (Visible on Hover) -->
+            <div class="absolute inset-0 islamic-back-pattern opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            
+            <!-- Arrow Icon -->
+            <i class="fas fa-arrow-left text-white text-xl relative z-10 transform group-hover:-translate-x-1 transition-transform duration-300"></i>
+            
+            <!-- Pulsing Ring -->
+            <div class="absolute inset-0 border-2 border-yellow-300 rounded-full opacity-0 group-hover:opacity-100 animate-pulse-gold"></div>
+        </div>
+        
+        <!-- Text Label (Hidden on Mobile) -->
+        <span class="bg-black/80 text-white px-4 py-2 rounded-lg text-sm font-medium hidden md:block transform translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500">
+            Return to Wisdom
+        </span>
+    </div>
+</a>
+
+<style>
+    /* Islamic Pattern */
+    .islamic-back-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30 Z' fill='none' stroke='white' stroke-width='1.2'/%3E%3Ccircle cx='30' cy='30' r='20' fill='none' stroke='white' stroke-width='1'/%3E%3C/svg%3E");
+        background-size: 60px 60px;
+        border-radius: 9999px;
+    }
+
+    /* Custom Animations */
+    @keyframes pulse-gold {
+        0%, 100% { transform: scale(1); opacity: 0.7; }
+        50% { transform: scale(1.1); opacity: 0.3; }
+    }
+    .animate-pulse-gold {
+        animation: pulse-gold 2s infinite;
+    }
+    .shadow-gold-lg {
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+    }
+
+    /* Scroll Behavior */
+    #backButton.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    #backButton.hide {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        #backButton {
+            bottom: 4rem; /* Above other FABs */
+            left: 1.5rem;
+        }
+    }
+</style>
+
+<script>
+    // Show/hide based on scroll
+    window.addEventListener('scroll', function() {
+        const backBtn = document.getElementById('backButton');
+        if (window.scrollY > 200) {
+            backBtn.classList.add('show');
+            backBtn.classList.remove('hide');
+        } else {
+            backBtn.classList.remove('show');
+            backBtn.classList.add('hide');
+        }
+    });
+
+    // Immediately show if not on homepage
+    if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
+        document.getElementById('backButton').classList.add('show');
+    }
+</script>
+</body>
+</html>

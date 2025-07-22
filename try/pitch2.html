@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5IRE ULA - Legacy Pitch</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="max-w-5xl mx-auto p-6 bg-white shadow-2xl mt-10 rounded-xl">
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold text-blue-800">5IRE Universal Learning Archive (ULA)</h1>
+      <p class="text-lg text-gray-600 italic">A Legacy Project by Nuhu Muhammad Datti | SIWES 2025</p>
+    </header>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-green-700 mb-2">1. Introduction</h2>
+      <p>Developed during SIWES at IBBU, 5IRE ULA is an intelligent archive to preserve and promote Nigeria’s tech education journey. It captures beginner to advanced Python, offers certifications, and includes real-world projects and intern interviews.</p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-red-700 mb-2">2. Problem</h2>
+      <ul class="list-disc list-inside">
+        <li>No centralized learning system for tech interns.</li>
+        <li>Knowledge from SIWES often lost or undocumented.</li>
+        <li>Limited continuity or national reuse of SIWES learning.</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-purple-700 mb-2">3. Vision</h2>
+      <p>To establish a national archive that uses AI to document learning, auto-generate quizzes, provide feedback, and serve as a legacy platform for Nigeria’s digital future.</p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-indigo-700 mb-2">4. Features</h2>
+      <ul class="list-disc list-inside">
+        <li>Python Beginner to Advanced Curriculum</li>
+        <li>Certificate Generator for Real-World Projects</li>
+        <li>Auto-Graded Quizzes</li>
+        <li>Interview Snippets from Interns and Corps Members</li>
+        <li>Downloadable Study Materials</li>
+        <li>Planned AI Q&A and Summary Tool</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-yellow-700 mb-2">5. Technology Stack</h2>
+      <p>HTML, CSS, JavaScript (Tailwind), Node.js, MySQL, GPT-4, JWT Auth</p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-blue-600 mb-2">6. Impact</h2>
+      <ul class="list-disc list-inside">
+        <li>25+ learners certified during SIWES</li>
+        <li>Python taught through hands-on project building</li>
+        <li>Interns confirm usability and simplicity</li>
+      </ul>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-pink-700 mb-2">7. Call to Action</h2>
+      <p>We seek NITDA/NCAIR’s endorsement, resource support, and integration to scale this into Nigeria’s first open learning legacy platform.</p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">8. Quote</h2>
+      <blockquote class="border-l-4 border-blue-600 pl-4 italic text-gray-600">“A Nation that preserves its learners' struggles builds a library for future victories.” — Nuhu Muhammad Datti</blockquote>
+    </section>
+
+    <footer class="text-center mt-10">
+      <h3 class="text-xl font-semibold mb-2">Contact & Live Demo</h3>
+      <p>Email: <a class="text-blue-500" href="mailto:your@email.com">your@email.com</a></p>
+      <p>GitHub: <a class="text-blue-500" href="https://github.com/yourrepo" target="_blank">https://github.com/yourrepo</a></p>
+      <div id="qrcode" class="mt-4 mx-auto"></div>
+      <p class="text-sm text-gray-500 mt-2">Scan QR to view live demo</p>
+    </footer>
+  </div>
+
+  <script>
+    QRCode.toCanvas(document.getElementById("qrcode"), "https://github.com/yourrepo", function (error) {
+      if (error) console.error(error);
+    });
+  </script>
+</body>
+</html>

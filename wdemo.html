@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5IRE ULA - AI Learning Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+      /* Navigation Styles */
+             :root {
+            --ntida-blue: #1e3a8a;
+            --ntida-light: #2563eb;
+            --ntida-gold: #d4af37;
+            --ntida-emerald: #10b981;
+        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at center, #0F172A, #000);
+    }
+    .glow-text {
+      text-shadow: 0 0 10px rgba(0, 180, 255, 0.7);
+    }
+    .chat-message {
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    nav {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    /* Desktop Navigation Links */
+    nav a {
+        color: var(--ntida-blue);
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--ntida-light);
+    }
+
+    /* Active Link Indicator */
+    nav a:hover::after,
+    nav a:focus::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--ntida-gold);
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* Active Link Indicator */
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ntida-gold);
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+    /* Apply Now Button */
+    nav .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+    }
+
+    nav .apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.15);
+        background: linear-gradient(135deg, var(--ntida-light) 0%, var(--ntida-blue) 100%);
+    }
+
+    /* Mobile Menu Toggle */
+    #menu-toggle {
+        transition: all 0.3s ease;
+        color: var(--ntida-blue);
+    }
+
+    #menu-toggle:hover {
+        color: var(--ntida-light);
+        transform: scale(1.1);
+    }
+
+    /* Mobile Menu */
+    #mobile-menu {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(30, 58, 138, 0.1);
+    }
+
+    #mobile-menu a {
+        color: var(--ntida-blue);
+        transition: all 0.2s ease;
+        padding: 12px 0;
+    }
+
+    #mobile-menu a:hover {
+        color: var(--ntida-light);
+        transform: translateX(4px);
+    }
+
+    #mobile-menu .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        margin-top: 8px;
+    }
+
+    /* Backdrop */
+    .backdrop {
+        background: rgba(30, 58, 138, 0.2);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* Active State for Mobile Menu */
+    #mobile-menu.open a:hover::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--ntida-gold);
+    }
+    
+        /* NAV */
+        /* Add these styles to your existing CSS */
+        #mobile-menu {
+            position: fixed;
+            top: 68px; /* Height of your navbar */
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .backdrop {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+   
+  </style>
+</head>
+<body class="text-white min-h-screen">
+  
+    <!-- Updated Navbar -->
+    <nav class=" bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] backdrop-blur-md border-b border-gray-200 py-3 px-6 flex justify-between items-center sticky top-0 z-50">
+         <div class="flex items-center space-x-2">
+                <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">5IRE</h1>
+                    <p class="text-xs text-cyan-300">Universal Learning Archive</p>
+                </div>
+            </div>
+        <div class="flex items-center">
+            <span class="hidden md:inline-block text-sm font-bold bg-blue-100 text-white px-3 py-1 rounded-full">ULA v1.0</span>
+        </div>
+        
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+            <a href="./home_demo.html" class="hover:text-amber-300 text-cyan-300 transition">Platform</a>
+                <a href="#" class="hover:text-amber-300 text-cyan-300 transition active Active">Demo</a>
+                <a href="./arkive.html" class="hover:text-amber-300 text-cyan-300 transition">Partners</a>
+                <a href="./partner.html" class="hover:text-amber-300 text-cyan-300 transition">Join Project</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="./partner.html" class="hidden md:inline-block px-6 py-2 bg-yellow-400 hover:bg-yellow-300 text-white font-semibold hover:bg-blue-700 text-white font-medium rounded-lg transition">Apply Now</a>
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+               <i class="fas fa-bars text-4xl text-yellow-400 hover:text-yellow-300 transition duration-300" id="menu-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="backdrop" class="backdrop"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="./home_demo.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Platform</a>
+            <a href="./wdemo.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link active">Demo</a>
+            <a href="./arkive.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Parteners</a>
+            <a href="./partner.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Join Project</a>
+            <a href="./partner.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition text-center mt-2 mobile-link">Apply Now</a>
+        </div>
+    </div>
+
+  <!-- 🌟 Hero Section -->
+  <section class="py-20 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-5xl font-bold mb-6 glow-text">The Future of Learning is Here</h2>
+      <p class="text-xl text-gray-300 mb-8">
+        Upload documents, ask AI questions, and generate quizzes instantly. <br>
+        <span class="text-[#FFD700]">No backend required—pure frontend magic.</span>
+      </p>
+      <div class="flex justify-center space-x-4">
+        <a href="#upload" class="bg-[#FFD700] hover:bg-[#D4AF37] text-[#0A0F24] px-6 py-3 rounded font-bold transition">
+          <i class="fas fa-upload mr-2"></i> Upload Document
+        </a>
+        <a href="#chat" class="bg-[#00B4FF] hover:bg-[#0088CC] text-white px-6 py-3 rounded font-bold transition">
+          <i class="fas fa-comment mr-2"></i> Ask AI
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 📂 Upload Section -->
+  <section id="upload" class="py-16 px-6 bg-[#1A1F3D]">
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-center glow-text">Upload Your Documents</h3>
+      <div class="bg-[#0A0F24] p-8 rounded-xl border border-[#FFD700]/30">
+        <div class="flex flex-col items-center justify-center border-2 border-dashed border-[#00B4FF] rounded-lg p-12 text-center cursor-pointer hover:bg-[#1A1F3D] transition" id="dropZone">
+          <i class="fas fa-cloud-upload-alt text-5xl text-[#00B4FF] mb-4"></i>
+          <p class="text-xl mb-2">Drag & Drop Files Here</p>
+          <p class="text-gray-400 mb-4">or</p>
+          <input type="file" id="fileInput" class="hidden" accept=".pdf,.docx,.txt" multiple />
+          <button onclick="document.getElementById('fileInput').click()" class="bg-[#FFD700] hover:bg-[#D4AF37] text-[#0A0F24] px-6 py-2 rounded font-bold transition">
+            <i class="fas fa-folder-open mr-2"></i> Browse Files
+          </button>
+        </div>
+        <div id="fileList" class="mt-6 space-y-2"></div>
+        <button id="processBtn" class="mt-6 bg-[#00B4FF] hover:bg-[#0088CC] text-white px-6 py-3 rounded font-bold w-full transition hidden">
+          <i class="fas fa-cogs mr-2"></i> Process Documents
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💬 AI Chat Section -->
+  <section id="chat" class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-center glow-text">Chat With AI</h3>
+      <div class="bg-[#1A1F3D] p-6 rounded-xl border border-[#00B4FF]/30">
+        <div class="bg-[#0A0F24] p-4 h-96 overflow-y-auto rounded-lg mb-4" id="chatBox">
+          <div class="chat-message ai-message mb-4">
+            <div class="flex items-start">
+              <div class="w-10 h-10 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3">
+                <i class="fas fa-robot text-white"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-[#00B4FF]">AI Assistant</p>
+                <p class="text-gray-300">Hello! I'm your AI learning assistant. Upload a document and ask me anything about it!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex space-x-3">
+          <input type="text" id="userInput" class="flex-1 bg-[#0A0F24] border border-[#00B4FF]/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00B4FF]" placeholder="Ask a question...">
+          <button onclick="askAI()" class="bg-[#FFD700] hover:bg-[#D4AF37] text-[#0A0F24] px-6 py-3 rounded-lg font-bold transition">
+            <i class="fas fa-paper-plane"></i> Ask
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🎯 Quiz Generator -->
+  <section id="quiz" class="py-16 px-6 bg-[#1A1F3D]">
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-center glow-text">Generate Quiz</h3>
+      <div class="bg-[#0A0F24] p-8 rounded-xl border border-[#FFD700]/30">
+        <div class="mb-6">
+          <label class="block text-lg mb-2">Select Document</label>
+          <select id="quizDocSelect" class="w-full bg-[#1A1F3D] border border-[#00B4FF]/50 rounded-lg px-4 py-3 text-white">
+            <option value="">-- Select a document --</option>
+            <option value="doc1">Python Basics</option>
+            <option value="doc2">Blockchain Fundamentals</option>
+            <option value="doc3">AI & Machine Learning</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="block text-lg mb-2">Quiz Difficulty</label>
+          <div class="flex space-x-4">
+            <button class="quiz-difficulty bg-[#1A1F3D] hover:bg-[#00B4FF] px-4 py-2 rounded-lg border border-[#00B4FF]/50 transition" data-difficulty="easy">Easy</button>
+            <button class="quiz-difficulty bg-[#1A1F3D] hover:bg-[#FFD700] px-4 py-2 rounded-lg border border-[#FFD700]/50 transition" data-difficulty="medium">Medium</button>
+            <button class="quiz-difficulty bg-[#1A1F3D] hover:bg-[#FF6B6B] px-4 py-2 rounded-lg border border-[#FF6B6B]/50 transition" data-difficulty="hard">Hard</button>
+          </div>
+        </div>
+        <button onclick="generateQuiz()" class="w-full bg-[#FFD700] hover:bg-[#D4AF37] text-[#0A0F24] px-6 py-3 rounded-lg font-bold transition">
+          <i class="fas fa-magic mr-2"></i> Generate Quiz
+        </button>
+        <div id="quizContainer" class="mt-8 hidden">
+          <h4 class="text-xl font-bold mb-4">Generated Quiz</h4>
+          <div id="quizQuestions" class="space-y-6"></div>
+          <button id="submitQuiz" class="mt-6 bg-[#00B4FF] hover:bg-[#0088CC] text-white px-6 py-3 rounded-lg font-bold transition">
+            <i class="fas fa-check-circle mr-2"></i> Submit Answers
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🏆 Results Section -->
+  <section id="results" class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h3 class="text-3xl font-bold mb-8 text-center glow-text">Your Learning Analytics</h3>
+      <div class="bg-[#1A1F3D] p-8 rounded-xl border border-[#00B4FF]/30">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-[#0A0F24] p-6 rounded-lg border border-[#FFD700]/30 text-center">
+            <p class="text-4xl font-bold text-[#FFD700]">12</p>
+            <p>Documents Processed</p>
+          </div>
+          <div class="bg-[#0A0F24] p-6 rounded-lg border border-[#00B4FF]/30 text-center">
+            <p class="text-4xl font-bold text-[#00B4FF]">47</p>
+            <p>Questions Asked</p>
+          </div>
+          <div class="bg-[#0A0F24] p-6 rounded-lg border border-[#FF6B6B]/30 text-center">
+            <p class="text-4xl font-bold text-[#FF6B6B]">92%</p>
+            <p>Quiz Accuracy</p>
+          </div>
+        </div>
+        <div class="bg-[#0A0F24] p-6 rounded-lg border border-[#00B4FF]/30">
+          <h4 class="text-xl font-bold mb-4 text-[#FFD700]">Knowledge Graph</h4>
+          <div class="h-64 bg-[#1A1F3D] rounded-lg flex items-center justify-center">
+            <p class="text-gray-400">(Visualization of your learning progress would appear here)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- Home Button - Add to your education page template -->
+<a href="./pitch_deck2.html" class="fixed bottom-6 left-6 z-40">
+  <button class="flex items-center space-x-2 bg-white border-2 border-[#1e3a8a] text-[#1e3a8a] font-bold py-3 px-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 hover:bg-[#1e3a8a]/10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+    <span>Pitch Deck</span>
+  </button>
+</a
+
+  <!-- 🚀 Footer -->
+  <footer class="bg-[#0A0F24] py-8 px-6 border-t border-[#1A1F3D]">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center">
+              <span class="text-sm font-bold text-[#0A0F24]">5</span>
+            </div>
+            <p class="text-lg font-bold">5IRE Universal Learning Archive</p>
+          </div>
+          <p class="text-gray-400 mt-2">A NITDA/NCAIR Initiative</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-[#FFD700] transition"><i class="fab fa-github text-xl"></i></a>
+          <a href="#" class="hover:text-[#00B4FF] transition"><i class="fab fa-twitter text-xl"></i></a>
+          <a href="#" class="hover:text-[#FF6B6B] transition"><i class="fab fa-linkedin text-xl"></i></a>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-gray-400 text-sm">
+        <p>© 2025 5IRE Movement. All rights reserved.</p>
+        <p class="mt-1">Designed to revolutionize learning across Africa and beyond.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+     // NAV
+         // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('backdrop');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const body = document.body;
+
+        // Toggle menu function
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            backdrop.classList.toggle('open');
+            body.classList.toggle('menu-open');
+            
+            // Change icon
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on links
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                toggleMenu();
+            }
+        });
+
+        // Your existing particle effect code
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+        // Floating particles effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+  </script>
+
+  <!-- 🧠 JavaScript -->
+  <script>
+    // 📂 File Upload Handling
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const fileList = document.getElementById('fileList');
+    const processBtn = document.getElementById('processBtn');
+
+    // Drag & Drop
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('border-[#FFD700]', 'bg-[#1A1F3D]');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('border-[#FFD700]', 'bg-[#1A1F3D]');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('border-[#FFD700]', 'bg-[#1A1F3D]');
+      fileInput.files = e.dataTransfer.files;
+      updateFileList();
+    });
+
+    fileInput.addEventListener('change', updateFileList);
+
+    function updateFileList() {
+      fileList.innerHTML = '';
+      if (fileInput.files.length > 0) {
+        processBtn.classList.remove('hidden');
+        Array.from(fileInput.files).forEach(file => {
+          const fileItem = document.createElement('div');
+          fileItem.className = 'flex items-center justify-between bg-[#1A1F3D] p-3 rounded-lg';
+          fileItem.innerHTML = `
+            <div class="flex items-center">
+              <i class="fas fa-file-alt text-[#00B4FF] mr-3"></i>
+              <span>${file.name}</span>
+            </div>
+            <span class="text-sm text-gray-400">${(file.size / 1024).toFixed(2)} KB</span>
+          `;
+          fileList.appendChild(fileItem);
+        });
+      } else {
+        processBtn.classList.add('hidden');
+      }
+    }
+
+    processBtn.addEventListener('click', () => {
+      alert('Documents processed successfully! Now you can chat with AI or generate quizzes.');
+    });
+
+    // 💬 AI Chat Functionality
+    function askAI() {
+      const userInput = document.getElementById('userInput');
+      const chatBox = document.getElementById('chatBox');
+
+      if (userInput.value.trim() === '') return;
+
+      // User message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'chat-message user-message mb-4';
+      userMsg.innerHTML = `
+        <div class="flex items-start justify-end">
+          <div class="max-w-xs md:max-w-md bg-[#0055A4] p-3 rounded-lg ml-auto">
+            <p>${userInput.value}</p>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-[#0055A4] flex items-center justify-center ml-3">
+            <i class="fas fa-user text-white"></i>
+          </div>
+        </div>
+      `;
+      chatBox.appendChild(userMsg);
+
+      // Simulate AI thinking
+      const thinkingMsg = document.createElement('div');
+      thinkingMsg.className = 'chat-message ai-message mb-4 opacity-70';
+      thinkingMsg.innerHTML = `
+        <div class="flex items-start">
+          <div class="w-10 h-10 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3">
+            <i class="fas fa-robot text-white"></i>
+          </div>
+          <div class="max-w-xs md:max-w-md bg-[#1A1F3D] p-3 rounded-lg">
+            <p>Thinking...</p>
+          </div>
+        </div>
+      `;
+      chatBox.appendChild(thinkingMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Simulate AI response after delay
+      setTimeout(() => {
+        chatBox.removeChild(thinkingMsg);
+        
+        const aiMsg = document.createElement('div');
+        aiMsg.className = 'chat-message ai-message mb-4';
+        aiMsg.innerHTML = `
+          <div class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3">
+              <i class="fas fa-robot text-white"></i>
+            </div>
+            <div class="max-w-xs md:max-w-md bg-[#1A1F3D] p-3 rounded-lg">
+              <p>${generateAIResponse(userInput.value)}</p>
+            </div>
+          </div>
+        `;
+        chatBox.appendChild(aiMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 1500);
+
+      userInput.value = '';
+    }
+
+    function generateAIResponse(question) {
+      const responses = [
+        `Based on the document, the answer to "${question}" would be that Python is a versatile programming language used for web development, AI, and more.`,
+        `The document suggests that blockchain technology provides decentralized security, which answers your question about "${question}".`,
+        `Regarding "${question}", the uploaded materials indicate that machine learning requires quality data for effective model training.`,
+        `Your question about "${question}" is addressed in chapter 3, which discusses neural networks and deep learning architectures.`,
+        `The document's section on algorithms provides insight into "${question}" by explaining time complexity and optimization.`
+      ];
+      return responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    // 🎯 Quiz Generation
+    function generateQuiz() {
+      const quizContainer = document.getElementById('quizContainer');
+      const quizQuestions = document.getElementById('quizQuestions');
+      const selectedDoc = document.getElementById('quizDocSelect').value;
+      
+      if (!selectedDoc) {
+        alert('Please select a document first!');
+        return;
+      }
+
+      quizQuestions.innerHTML = '';
+      
+      // Generate 5 random questions
+      const questions = [
+        {
+          question: "What is the main advantage of using Python for AI development?",
+          options: ["Easy syntax", "Slow execution", "Limited libraries", "No community support"],
+          answer: 0
+        },
+        {
+          question: "Which of these is NOT a blockchain feature?",
+          options: ["Decentralization", "Immutability", "Central control", "Consensus mechanisms"],
+          answer: 2
+        },
+        {
+          question: "What does 'ML' stand for in AI?",
+          options: ["Meta Learning", "Machine Learning", "Manual Learning", "Memory Learning"],
+          answer: 1
+        },
+        {
+          question: "Which Python library is commonly used for data analysis?",
+          options: ["TensorFlow", "Pandas", "Django", "Flask"],
+          answer: 1
+        },
+        {
+          question: "What is the purpose of a smart contract?",
+          options: ["Automate agreements", "Store passwords", "Play games", "Edit videos"],
+          answer: 0
+        }
+      ];
+
+      questions.forEach((q, i) => {
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'bg-[#1A1F3D] p-4 rounded-lg';
+        questionDiv.innerHTML = `
+          <p class="font-bold mb-3">${i + 1}. ${q.question}</p>
+          <div class="space-y-2">
+            ${q.options.map((opt, j) => `
+              <label class="flex items-center space-x-3 cursor-pointer">
+                <input type="radio" name="q${i}" value="${j}" class="form-radio text-[#00B4FF]">
+                <span>${opt}</span>
+              </label>
+            `).join('')}
+          </div>
+        `;
+        quizQuestions.appendChild(questionDiv);
+      });
+
+      quizContainer.classList.remove('hidden');
+    }
+
+    // Submit Quiz
+    document.getElementById('submitQuiz').addEventListener('click', () => {
+      alert('Quiz submitted! Check your results in the analytics section.');
+      document.getElementById('quizContainer').classList.add('hidden');
+    });
+
+    // Allow pressing Enter in chat
+    document.getElementById('userInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') askAI();
+    });
+  </script>
+</body>
+</html>

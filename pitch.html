@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5IRE ULA - Cohort Knowledge Preservation & Public Infrastructure</title>
+  <meta property="og:title" content="5IRE ULA - Africa's Knowledge Legacy Engine">
+  <meta property="og:description" content="Blockchain-powered cohort learning preservation and public infrastructure for Nigeria's digital future">
+  <meta property="og:image" content="https://example.com/ula-preview.jpg">
+  <meta property="og:url" content="https://5ire.org/ula">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- 5IRE Branding Colors -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            '5ire-blue': '#00B4FF',
+            '5ire-gold': '#FFD700',
+            'nitda-green': '#006400',
+            'nitda-blue': '#0055A4',
+            'ncair-purple': '#6A0DAD',
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: radial-gradient(circle at center, #0F172A, #000);
+    }
+    h1, h2, h3, .title-font {
+      font-family: 'Archivo', sans-serif;
+      font-weight: 700;
+    }
+    .glow-text {
+      text-shadow: 0 0 15px rgba(0, 180, 255, 0.7);
+    }
+    .pulse-animation {
+      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen">
+
+<!-- 🌐 Navigation -->
+<nav class="bg-gradient-to-r from-nitda-blue to-nitda-green py-4 px-6 sticky top-0 z-50 shadow-xl">
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-full bg-5ire-gold flex items-center justify-center">
+        <span class="text-xl font-bold text-nitda-blue">5</span>
+      </div>
+      <h1 class="text-2xl font-bold">5IRE ULA</h1>
+    </div>
+    <div class="hidden md:flex space-x-8">
+      <a href="#problem" class="hover:text-5ire-gold transition">Challenge</a>
+      <a href="#solution" class="hover:text-5ire-gold transition">Solution</a>
+      <a href="#features" class="hover:text-5ire-gold transition">Features</a>
+      <a href="#roadmap" class="hover:text-5ire-gold transition">Roadmap</a>
+    </div>
+    <button class="bg-5ire-gold text-nitda-blue px-6 py-2 rounded-full font-bold hover:bg-5ire-blue hover:text-white transition">
+      <i class="fas fa-handshake mr-2"></i> Partner With Us
+    </button>
+  </div>
+</nav>
+
+<!-- 🚀 Hero Section -->
+<section class="relative py-24 px-6 text-center overflow-hidden">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-5ire-blue opacity-20 blur-3xl"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-72 h-72 rounded-full bg-5ire-gold opacity-15 blur-3xl"></div>
+  </div>
+  
+  <div class="max-w-5xl mx-auto relative z-10">
+    <div class="inline-block mb-6 px-4 py-2 bg-nitda-blue/30 rounded-full border border-5ire-blue/50">
+      <p class="text-sm font-medium">NITDA/NCAIR Official Proposal</p>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-bold mb-6 glow-text">Preserving Nigeria's <span class="text-5ire-gold">Tech Knowledge</span> for Generations</h1>
+    <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-10">
+      A blockchain-powered platform to capture cohort learning, institutional knowledge, 
+      and public infrastructure documentation - creating Africa's first perpetual tech legacy system.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="#solution" class="bg-5ire-gold hover:bg-5ire-blue text-nitda-blue hover:text-white px-8 py-4 rounded-full font-bold transition flex items-center justify-center">
+        <i class="fas fa-lightbulb mr-3 text-xl"></i> Explore Solution
+      </a>
+      <a href="#demo" class="bg-transparent border-2 border-5ire-blue text-5ire-blue hover:bg-5ire-blue hover:text-white px-8 py-4 rounded-full font-bold transition flex items-center justify-center">
+        <i class="fas fa-eye mr-3 text-xl"></i> Live Demo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 📊 Problem Section -->
+<section id="problem" class="py-20 px-6 bg-nitda-blue/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center mb-16">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-r from-5ire-gold to-5ire-blue flex items-center justify-center mr-6">
+        <span class="text-2xl font-bold text-nitda-blue">1</span>
+      </div>
+      <h2 class="text-4xl font-bold">The <span class="text-5ire-gold">Critical Problem</span> We Solve</h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Problem Card 1 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition">
+        <div class="text-5ire-gold text-5xl mb-5">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Knowledge Evaporation</h3>
+        <p class="text-gray-300">
+          Over 80% of institutional knowledge from SIWES/NYSC cohorts is lost annually, forcing each new generation to relearn fundamentals.
+        </p>
+      </div>
+      
+      <!-- Problem Card 2 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition">
+        <div class="text-5ire-gold text-5xl mb-5">
+          <i class="fas fa-road-bridge"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Infrastructure Amnesia</h3>
+        <p class="text-gray-300">
+          Public infrastructure projects lack living documentation, causing maintenance crises and duplicated efforts across agencies.
+        </p>
+      </div>
+      
+      <!-- Problem Card 3 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition">
+        <div class="text-5ire-gold text-5xl mb-5">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Education Discontinuity</h3>
+        <p class="text-gray-300">
+          Nigerian tech education lacks cumulative progress tracking, with no system to build on previous cohorts' breakthroughs.
+        </p>
+      </div>
+    </div>
+    
+    <div class="mt-16 bg-gradient-to-r from-nitda-blue to-nitda-green p-8 rounded-xl">
+      <h3 class="text-2xl font-bold mb-4 text-5ire-gold">Economic Impact</h3>
+      <p class="text-lg">
+        NITDA estimates <span class="font-bold">₦28 billion</span> is wasted annually recreating solutions that previous cohorts had already developed but weren't preserved.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 💡 Solution Section -->
+<section id="solution" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center mb-16">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-r from-5ire-gold to-5ire-blue flex items-center justify-center mr-6">
+        <span class="text-2xl font-bold text-nitda-blue">2</span>
+      </div>
+      <h2 class="text-4xl font-bold">The <span class="text-5ire-blue">5IRE ULA</span> Solution</h2>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 class="text-3xl font-bold mb-6">Africa's First Perpetual Learning Archive</h3>
+        <p class="text-xl mb-8">
+          Combining blockchain technology, AI curation, and government infrastructure mapping to create Nigeria's first:
+        </p>
+        <ul class="space-y-6">
+          <li class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+              <i class="fas fa-check text-nitda-blue"></i>
+            </div>
+            <span class="text-lg">Immutable knowledge repository for all NITDA/NYSC tech cohorts</span>
+          </li>
+          <li class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+              <i class="fas fa-check text-nitda-blue"></i>
+            </div>
+            <span class="text-lg">Public infrastructure documentation system with version control</span>
+          </li>
+          <li class="flex items-start">
+            <div class="w-10 h-10 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+              <i class="fas fa-check text-nitda-blue"></i>
+            </div>
+            <span class="text-lg">Generational AI mentor trained on Nigeria-specific tech challenges</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30">
+        <div class="text-center mb-6">
+          <div class="inline-block p-4 bg-5ire-blue/20 rounded-full">
+            <i class="fas fa-project-diagram text-5ire-blue text-5xl"></i>
+          </div>
+        </div>
+        <h4 class="text-2xl font-bold text-center mb-4">System Architecture</h4>
+        <div class="flex justify-center">
+          <img src="https://via.placeholder.com/500x300?text=5IRE+ULA+Architecture" alt="System Architecture" class="rounded-lg shadow-xl border border-5ire-blue/30">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✨ Features Section -->
+<section id="features" class="py-20 px-6 bg-nitda-blue/10">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center mb-16">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-r from-5ire-gold to-5ire-blue flex items-center justify-center mr-6">
+        <span class="text-2xl font-bold text-nitda-blue">3</span>
+      </div>
+      <h2 class="text-4xl font-bold">Key <span class="text-5ire-gold">Innovations</span></h2>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Feature 1 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition hover:-translate-y-2">
+        <div class="text-5ire-blue text-5xl mb-5">
+          <i class="fas fa-link"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Cohort Knowledge Chaining</h3>
+        <p class="text-gray-300 mb-4">
+          Each cohort's solutions become foundational building blocks for subsequent groups, creating compounding innovation.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-5ire-blue/20 text-5ire-blue px-3 py-1 rounded-full text-sm">Blockchain</span>
+          <span class="bg-5ire-gold/20 text-5ire-gold px-3 py-1 rounded-full text-sm">Smart Contracts</span>
+        </div>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition hover:-translate-y-2">
+        <div class="text-5ire-blue text-5xl mb-5">
+          <i class="fas fa-road"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Infrastructure Genome</h3>
+        <p class="text-gray-300 mb-4">
+          Every public infrastructure project gets a living digital twin with maintenance logs, specs, and upgrade paths.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-5ire-blue/20 text-5ire-blue px-3 py-1 rounded-full text-sm">GIS Mapping</span>
+          <span class="bg-5ire-gold/20 text-5ire-gold px-3 py-1 rounded-full text-sm">IoT Integration</span>
+        </div>
+      </div>
+      
+      <!-- Feature 3 -->
+      <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30 hover:border-5ire-gold transition hover:-translate-y-2">
+        <div class="text-5ire-blue text-5xl mb-5">
+          <i class="fas fa-robot"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">Generational AI Mentor</h3>
+        <p class="text-gray-300 mb-4">
+          AI trained on 10+ years of cohort solutions provides context-aware guidance to new learners.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-5ire-blue/20 text-5ire-blue px-3 py-1 rounded-full text-sm">GPT-4</span>
+          <span class="bg-5ire-gold/20 text-5ire-gold px-3 py-1 rounded-full text-sm">NLP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🚧 Roadmap Section -->
+<section id="roadmap" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center mb-16">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-r from-5ire-gold to-5ire-blue flex items-center justify-center mr-6">
+        <span class="text-2xl font-bold text-nitda-blue">4</span>
+      </div>
+      <h2 class="text-4xl font-bold">Implementation <span class="text-5ire-blue">Roadmap</span></h2>
+    </div>
+    
+    <div class="relative">
+      <!-- Timeline line -->
+      <div class="absolute left-8 h-full w-1 bg-gradient-to-b from-5ire-gold to-5ire-blue transform -translate-x-1/2"></div>
+      
+      <!-- Timeline items -->
+      <div class="space-y-16">
+        <!-- Phase 1 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-5ire-gold border-4 border-nitda-blue transform -translate-x-1/2 flex items-center justify-center">
+            <div class="w-4 h-4 rounded-full bg-nitda-blue"></div>
+          </div>
+          <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30">
+            <h3 class="text-2xl font-bold text-5ire-gold mb-2">Q3 2024</h3>
+            <h4 class="text-xl font-bold mb-4">NITDA Pilot Launch</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>Deploy to 5 SIWES centers</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>Onboard first 200 users</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>Basic infrastructure mapping</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Phase 2 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-5ire-blue border-4 border-nitda-blue transform -translate-x-1/2 flex items-center justify-center">
+            <div class="w-4 h-4 rounded-full bg-nitda-blue"></div>
+          </div>
+          <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30">
+            <h3 class="text-2xl font-bold text-5ire-blue mb-2">Q1 2025</h3>
+            <h4 class="text-xl font-bold mb-4">National Expansion</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-gold flex items-center justify-center mr-3 mt-1"></div>
+                <span>Integrate with NYSC program</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-gold flex items-center justify-center mr-3 mt-1"></div>
+                <span>10,000+ active users</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-gold flex items-center justify-center mr-3 mt-1"></div>
+                <span>5 major infrastructure projects documented</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Phase 3 -->
+        <div class="relative pl-16">
+          <div class="absolute left-0 top-0 w-8 h-8 rounded-full bg-5ire-gold border-4 border-nitda-blue transform -translate-x-1/2 flex items-center justify-center">
+            <div class="w-4 h-4 rounded-full bg-nitda-blue"></div>
+          </div>
+          <div class="bg-nitda-blue/20 p-8 rounded-xl border border-5ire-blue/30">
+            <h3 class="text-2xl font-bold text-5ire-gold mb-2">Q4 2025</h3>
+            <h4 class="text-xl font-bold mb-4">Pan-African Deployment</h4>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>Expand to 3 African nations</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>100,000+ knowledge assets</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 rounded-full bg-5ire-blue flex items-center justify-center mr-3 mt-1"></div>
+                <span>UN recognition as digital preservation model</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 📈 Impact Section -->
+<section class="py-20 px-6 bg-gradient-to-r from-nitda-blue to-nitda-green">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-16 text-center">Projected <span class="text-5ire-gold">Impact</span></h2>
+    
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <div class="bg-white/10 p-8 rounded-xl border border-white/20 text-center">
+        <p class="text-5xl font-bold mb-3">95%</p>
+        <p>Reduction in knowledge loss between cohorts</p>
+      </div>
+      <div class="bg-white/10 p-8 rounded-xl border border-white/20 text-center">
+        <p class="text-5xl font-bold mb-3">₦42B</p>
+        <p>Annual savings in avoided redundant work</p>
+      </div>
+      <div class="bg-white/10 p-8 rounded-xl border border-white/20 text-center">
+        <p class="text-5xl font-bold mb-3">10x</p>
+        <p>Faster onboarding for new tech hires</p>
+      </div>
+    </div>
+    
+    <div class="bg-white/10 p-8 rounded-xl border border-white/20">
+      <h3 class="text-2xl font-bold mb-4 text-5ire-gold">Transformational Outcomes</h3>
+      <ul class="space-y-4">
+        <li class="flex items-start">
+          <div class="w-6 h-6 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+            <i class="fas fa-check text-nitda-blue text-xs"></i>
+          </div>
+          <span>Nigeria becomes Africa's knowledge preservation leader</span>
+        </li>
+        <li class="flex items-start">
+          <div class="w-6 h-6 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+            <i class="fas fa-check text-nitda-blue text-xs"></i>
+          </div>
+          <span>Public infrastructure maintenance costs drop by 60%</span>
+        </li>
+        <li class="flex items-start">
+          <div class="w-6 h-6 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+            <i class="fas fa-check text-nitda-blue text-xs"></i>
+          </div>
+          <span>Generational AI mentor becomes national standard</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 🎥 Demo Section -->
+<section id="demo" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex items-center mb-16">
+      <div class="w-16 h-16 rounded-full bg-gradient-to-r from-5ire-gold to-5ire-blue flex items-center justify-center mr-6">
+        <span class="text-2xl font-bold text-nitda-blue">5</span>
+      </div>
+      <h2 class="text-4xl font-bold">Platform <span class="text-5ire-blue">Demo</span></h2>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h3 class="text-3xl font-bold mb-6">Experience the Future</h3>
+        <p class="text-xl mb-8">
+          See how 5IRE ULA transforms knowledge preservation and infrastructure documentation:
+        </p>
+        <div class="space-y-6">
+          <div class="flex items-start">
+            <div class="w-12 h-12 rounded-full bg-5ire-blue flex items-center justify-center mr-4 mt-1">
+              <i class="fas fa-play text-white"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-2">Interactive Knowledge Graph</h4>
+              <p>Visualize connections between cohort solutions across decades</p>
+            </div>
+          </div>
+          <div class="flex items-start">
+            <div class="w-12 h-12 rounded-full bg-5ire-gold flex items-center justify-center mr-4 mt-1">
+              <i class="fas fa-road text-nitda-blue"></i>
+            </div>
+            <div>
+              <h4 class="text-xl font-bold mb-2">Infrastructure Timeline</h4>
+              <p>Track the complete lifecycle of public projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-nitda-blue/20 p-6 rounded-xl border border-5ire-blue/30">
+        <div class="aspect-w-16 aspect-h-9 bg-black rounded-lg overflow-hidden">
+          <img src="https://via.placeholder.com/800x450?text=5IRE+ULA+Demo+Video" alt="Platform Demo" class="w-full h-full object-cover">
+        </div>
+        <div class="mt-6 flex justify-center">
+          <button class="bg-5ire-gold hover:bg-5ire-blue text-nitda-blue hover:text-white px-8 py-3 rounded-full font-bold transition flex items-center">
+            <i class="fas fa-eye mr-3"></i> Launch Interactive Demo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 🤝 Call to Action -->
+<section class="py-20 px-6 bg-nitda-blue/10">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-6">Ready to Build Nigeria's <span class="text-5ire-gold">Knowledge Legacy</span>?</h2>
+    <p class="text-xl mb-10 max-w-3xl mx-auto">
+      Partner with us to deploy Africa's first perpetual learning and infrastructure preservation system.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <button class="bg-5ire-gold hover:bg-5ire-blue text-nitda-blue hover:text-white px-8 py-4 rounded-full font-bold transition">
+        <i class="fas fa-envelope mr-3"></i> Contact Our Team
+      </button>
+      <button class="bg-transparent border-2 border-5ire-blue text-5ire-blue hover:bg-5ire-blue hover:text-white px-8 py-4 rounded-full font-bold transition">
+        <i class="fas fa-file-alt mr-3"></i> Download Full Proposal
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 🏢 Footer -->
+<footer class="py-12 px-6 bg-nitda-blue">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-4 gap-12">
+      <div>
+        <div class="flex items-center mb-4">
+          <div class="w-10 h-10 rounded-full bg-5ire-gold flex items-center justify-center mr-3">
+            <span class="text-xl font-bold text-nitda-blue">5</span>
+          </div>
+          <h3 class="text-xl font-bold">5IRE ULA</h3>
+        </div>
+        <p class="text-sm text-gray-300">
+          A 5IRE and NITDA/NCAIR initiative to preserve Nigeria's technical knowledge for future generations.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-gray-300 hover:text-5ire-gold transition">White Paper</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-5ire-gold transition">GitHub</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-5ire-gold transition">Demo Access</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Partners</h4>
+        <ul class="space-y-2">
+          <li><a href="https://nitda.gov.ng" class="text-gray-300 hover:text-5ire-gold transition">NITDA</a></li>
+          <li><a href="https://ncair.gov.ng" class="text-gray-300 hover:text-5ire-gold transition">NCAIR</a></li>
+          <li><a href="https://5ire.org" class="text-gray-300 hover:text-5ire-gold transition">5IRE Chain</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-lg font-bold mb-4">Contact</h4>
+        <ul class="space-y-2">
+          <li class="flex items-center">
+            <i class="fas fa-envelope text-5ire-gold mr-2"></i>
+            <span class="text-gray-300">ula@5ire.org</span>
+          </li>
+          <li class="flex items-center">
+            <i class="fas fa-phone text-5ire-gold mr-2"></i>
+            <span class="text-gray-300">+234 808 844 0095</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
+      <p>© 2025 5IRE Universal Learning Archive. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

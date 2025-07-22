@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITDA Universal Learning Archive - Africa's AI-Powered Knowledge Revolution</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+             /* Navigation Styles */
+             :root {
+            --ntida-blue: #1e3a8a;
+            --ntida-light: #2563eb;
+            --ntida-gold: #d4af37;
+            --ntida-emerald: #10b981;
+        }
+    nav {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(30, 58, 138, 0.1);
+        box-shadow: 0 2px 10px rgba(30, 58, 138, 0.05);
+        transition: all 0.3s ease;
+    }
+
+    /* Desktop Navigation Links */
+    nav a {
+        color: var(--ntida-blue);
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--ntida-light);
+    }
+
+    /* Active Link Indicator */
+    nav a:hover::after,
+    nav a:focus::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--ntida-gold);
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    /* Active Link Indicator */
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ntida-gold);
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+    /* Apply Now Button */
+    nav .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+    }
+
+    nav .apply-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.15);
+        background: linear-gradient(135deg, var(--ntida-light) 0%, var(--ntida-blue) 100%);
+    }
+
+    /* Mobile Menu Toggle */
+    #menu-toggle {
+        transition: all 0.3s ease;
+        color: var(--ntida-blue);
+    }
+
+    #menu-toggle:hover {
+        color: var(--ntida-light);
+        transform: scale(1.1);
+    }
+
+    /* Mobile Menu */
+    #mobile-menu {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(30, 58, 138, 0.1);
+    }
+
+    #mobile-menu a {
+        color: var(--ntida-blue);
+        transition: all 0.2s ease;
+        padding: 12px 0;
+    }
+
+    #mobile-menu a:hover {
+        color: var(--ntida-light);
+        transform: translateX(4px);
+    }
+
+    #mobile-menu .apply-btn {
+        background: linear-gradient(135deg, var(--ntida-blue) 0%, var(--ntida-light) 100%);
+        margin-top: 8px;
+    }
+
+    /* Backdrop */
+    .backdrop {
+        background: rgba(30, 58, 138, 0.2);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* Active State for Mobile Menu */
+    #mobile-menu.open a:hover::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--ntida-gold);
+    }
+    
+        /* NAV */
+        /* Add these styles to your existing CSS */
+        #mobile-menu {
+            position: fixed;
+            top: 68px; /* Height of your navbar */
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 40;
+            pointer-events: none;
+        }
+
+        #mobile-menu.open {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .backdrop {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 30;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+   
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] text-white overflow-x-hidden">
+    <!-- Animated Background -->
+    <div id="particle-canvas" class="fixed inset-0 z-0 opacity-30"></div>
+    
+     <!-- Updated Navbar -->
+    <nav class=" bg-gradient-to-br from-[#000814] via-[#001d3d] to-[#003566] backdrop-blur-md border-b border-gray-200 py-3 px-6 flex justify-between items-center sticky top-0 z-50">
+         <div class="flex items-center space-x-2">
+                <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">5IRE</h1>
+                    <p class="text-xs text-cyan-300">Universal Learning Archive</p>
+                </div>
+            </div>
+        <div class="flex items-center">
+            <span class="hidden md:inline-block text-sm font-bold bg-blue-100 text-white px-3 py-1 rounded-full">ULA v1.0</span>
+        </div>
+        
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8">
+            <a href="#" class="hover:text-amber-300 text-cyan-300 transition active">Platform</a>
+                <a href="./wdemo.html" class="hover:text-amber-300 text-cyan-300 transition">Demo</a>
+                <a href="./arkive.html" class="hover:text-amber-300 text-cyan-300 transition">Partners</a>
+                <a href="./partner.html" class="hover:text-amber-300 text-cyan-300 transition">Join Project</a>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <a href="./partner.html" class="hidden md:inline-block px-6 py-2 bg-yellow-400 hover:bg-yellow-300 text-white font-semibold hover:bg-blue-700 text-white font-medium rounded-lg transition">Apply Now</a>
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+               <i class="fas fa-bars text-4xl text-yellow-400 hover:text-yellow-300 transition duration-300" id="menu-icon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Backdrop -->
+    <div id="backdrop" class="backdrop"></div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden">
+        <div class="flex flex-col space-y-4 p-6">
+            <a href="#" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link active">Platform</a>
+            <a href="./wdemo.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Demo</a>
+            <a href="./arkive.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Parteners</a>
+            <a href="./partner.html" class="font-medium text-gray-700 hover:text-blue-600 py-2 border-b border-gray-100 mobile-link">Join Project</a>
+            <a href="./partner.html" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition text-center mt-2 mobile-link">Apply Now</a>
+        </div>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="relative z-10 py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div class="inline-block bg-gradient-to-r from-blue-800/30 to-cyan-800/30 px-4 py-2 rounded-full mb-6">
+                    <p class="text-cyan-300 text-sm"><span class="text-amber-300">AI-POWERED</span> • KNOWLEDGE REVOLUTION</p>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Transforming <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">Knowledge</span> into Interactive <span id="typed" class="border-b-4 border-amber-400"></span>
+                </h1>
+                
+                <p class="text-lg text-blue-100 mb-10 max-w-2xl">
+                    Africa's first AI-powered universal learning platform that transforms documents into interactive knowledge experiences. Preserving Nigeria's intellectual legacy while building our technological future.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-gray-900 font-bold px-8 py-4 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg shadow-amber-500/30">
+                        Experience the Future
+                    </button>
+                    <button class="border-2 border-cyan-500 text-cyan-300 hover:bg-cyan-500/10 font-bold px-8 py-4 rounded-full text-lg transition-all">
+                        <i class="fas fa-play-circle mr-2"></i> Watch Demo
+                    </button>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <!-- Interactive Globe Visualization -->
+                <div class="relative bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-2xl p-1 backdrop-blur-xl">
+                    <div class="bg-gray-900/50 border border-cyan-500/30 rounded-xl aspect-square flex items-center justify-center">
+                        <div class="w-64 h-64 rounded-full border-2 border-cyan-500/30 flex items-center justify-center relative">
+                            <!-- Globe -->
+                            <div class="absolute w-full h-full rounded-full overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-b from-cyan-500/10 to-blue-500/10 rounded-full animate-pulse"></div>
+                                <div class="absolute inset-0 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg')] bg-cover rounded-full opacity-30"></div>
+                            </div>
+                            
+                            <!-- Nigeria Highlight -->
+                            <div class="absolute w-6 h-6 bg-amber-400 rounded-full animate-ping" style="top: 45%; left: 50%; transform: translate(-50%, -50%);"></div>
+                            <div class="absolute w-4 h-4 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full" style="top: 45%; left: 50%; transform: translate(-50%, -50%);"></div>
+                            
+                            <!-- Data Points -->
+                            <div class="absolute w-3 h-3 bg-cyan-400 rounded-full animate-pulse" style="top: 30%; left: 20%;"></div>
+                            <div class="absolute w-3 h-3 bg-cyan-400 rounded-full animate-pulse" style="top: 60%; left: 70%;"></div>
+                            <div class="absolute w-3 h-3 bg-cyan-400 rounded-full animate-pulse" style="top: 20%; left: 60%;"></div>
+                            
+                            <!-- Connecting Lines -->
+                            <div class="absolute w-0.5 h-20 bg-gradient-to-b from-cyan-400 to-transparent" style="top: 45%; left: 50%; transform: translateX(-50%);"></div>
+                        </div>
+                        
+                        <!-- Floating Cards -->
+                        <div class="absolute top-10 left-10 bg-gradient-to-br from-[#0c2a4d] to-[#001d3d] border border-cyan-500/30 rounded-xl p-4 w-48 shadow-xl animate-float">
+                            <div class="flex items-start mb-2">
+                                <div class="bg-amber-500 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-file-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Document AI</h3>
+                                    <p class="text-xs text-cyan-300">Smart Processing</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute bottom-10 right-10 bg-gradient-to-br from-[#0c2a4d] to-[#001d3d] border border-cyan-500/30 rounded-xl p-4 w-48 shadow-xl animate-float2">
+                            <div class="flex items-start mb-2">
+                                <div class="bg-cyan-500 p-2 rounded-lg mr-3">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Knowledge Graph</h3>
+                                    <p class="text-xs text-cyan-300">Connected Learning</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Showcase -->
+    <section class="relative z-10 py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-20">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Revolutionizing <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">Knowledge</span> for Eternity</h2>
+            <p class="text-blue-200 max-w-3xl mx-auto">Africa's intellectual renaissance powered by cutting-edge AI that transforms static documents into living, evolving knowledge ecosystems.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-xl hover:border-amber-500/50 transition-all">
+                <div class="w-14 h-14 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-brain text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Intelligent Document Processing</h3>
+                <p class="text-blue-200 mb-4">Upload any document and instantly transform it into an interactive learning experience with AI-generated insights, summaries, and quizzes.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full text-sm">PDF</span>
+                    <span class="bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full text-sm">DOCX</span>
+                    <span class="bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full text-sm">PPT</span>
+                    <span class="bg-amber-500/10 text-amber-300 px-3 py-1 rounded-full text-sm">Audio/Video</span>
+                </div>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-xl hover:border-amber-500/50 transition-all">
+                <div class="w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Adaptive Learning Paths</h3>
+                <p class="text-blue-200 mb-4">AI creates personalized learning journeys based on your goals, knowledge gaps, and preferred learning style.</p>
+                <div class="relative h-32 bg-gray-900/50 rounded-xl border border-cyan-500/20 mt-4 overflow-hidden">
+                    <div class="absolute w-24 h-1 bg-cyan-500 top-8 left-6"></div>
+                    <div class="absolute w-24 h-1 bg-cyan-500 top-8 left-6 rotate-45 origin-left"></div>
+                    <div class="absolute w-24 h-1 bg-cyan-500 top-8 left-6 -rotate-45 origin-left"></div>
+                    <div class="absolute w-6 h-6 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full top-5 left-4"></div>
+                    <div class="absolute w-4 h-4 bg-cyan-500 rounded-full top-16 left-32 animate-pulse"></div>
+                    <div class="absolute w-4 h-4 bg-amber-500 rounded-full top-4 left-44 animate-pulse"></div>
+                    <div class="absolute w-4 h-4 bg-blue-500 rounded-full top-24 left-28 animate-pulse"></div>
+                </div>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-6 backdrop-blur-xl hover:border-amber-500/50 transition-all">
+                <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-globe-africa text-white text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">Multilingual Knowledge Access</h3>
+                <p class="text-blue-200 mb-4">Break language barriers with AI-powered translations to Hausa, Yoruba, Igbo and 50+ languages making knowledge accessible to all Nigerians.</p>
+                <div class="flex mt-6 justify-around">
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-amber-700 to-amber-900 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white">HA</span>
+                        </div>
+                        <p class="text-xs">Hausa</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-700 to-green-900 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white">YO</span>
+                        </div>
+                        <p class="text-xs">Yoruba</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-700 to-red-900 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white">IG</span>
+                        </div>
+                        <p class="text-xs">Igbo</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-700 to-blue-900 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <span class="text-white">EN</span>
+                        </div>
+                        <p class="text-xs">English</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="relative z-10 py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-xl">
+                    <div class="flex justify-between items-start mb-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">National Knowledge Impact</h3>
+                            <p class="text-blue-200">Transforming Nigeria's intellectual capital into accessible innovation</p>
+                        </div>
+                        <div class="bg-amber-500/10 text-amber-300 px-4 py-2 rounded-full text-sm">
+                            Live Data
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-gray-900/50 border border-cyan-500/20 rounded-xl p-4">
+                            <div class="text-4xl font-bold text-amber-300 mb-2">1.2M+</div>
+                            <p class="text-sm text-blue-200">Documents Processed</p>
+                        </div>
+                        <div class="bg-gray-900/50 border border-cyan-500/20 rounded-xl p-4">
+                            <div class="text-4xl font-bold text-amber-300 mb-2">450K+</div>
+                            <p class="text-sm text-blue-200">Learning Modules</p>
+                        </div>
+                        <div class="bg-gray-900/50 border border-cyan-500/20 rounded-xl p-4">
+                            <div class="text-4xl font-bold text-amber-300 mb-2">24</div>
+                            <p class="text-sm text-blue-200">Government Agencies</p>
+                        </div>
+                        <div class="bg-gray-900/50 border border-cyan-500/20 rounded-xl p-4">
+                            <div class="text-4xl font-bold text-amber-300 mb-2">36</div>
+                            <p class="text-sm text-blue-200">States Impacted</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 pt-6 border-t border-cyan-500/20">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 flex items-center justify-center mr-4">
+                                <i class="fas fa-seedling text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Nigerian Digital Renaissance</h4>
+                                <p class="text-sm text-blue-200">Powering the next generation of African innovators</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-1 lg:order-2">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Building a <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">Legacy</span> That Echoes Through Time</h2>
+                <p class="text-lg text-blue-100 mb-8 max-w-2xl">
+                    This isn't just a platform - it's Nigeria's intellectual monument to the world. A living archive that grows smarter with every interaction, preserving our knowledge while building our future.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-infinity text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Timeless Architecture</h3>
+                            <p class="text-blue-200">Built on blockchain-verified knowledge preservation ensuring our legacy never fades.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-robot text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Self-Evolving AI</h3>
+                            <p class="text-blue-200">Our neural networks grow smarter with every interaction, creating Africa's first self-improving knowledge base.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-hands-helping text-white"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Global Knowledge Bridge</h3>
+                            <p class="text-blue-200">Connecting Nigerian innovation with global research communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Recognition -->
+    <section class="relative z-10 py-20 px-4 md:px-12 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-5xl font-bold mb-6">Inspiring <span class="bg-clip-text text-transparent bg-gradient-to-r from-amber-300 to-yellow-500">Global</span> Innovation</h2>
+            <p class="text-blue-200 max-w-3xl mx-auto">Recognized by tech leaders worldwide as a groundbreaking approach to knowledge preservation and education.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-xl">
+                <div class="text-amber-300 text-5xl mb-4">"</div>
+                <p class="text-lg italic mb-6">This represents the future of education technology. Nigeria is showing the world how AI can democratize knowledge at scale.</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-amber-400 mr-4"></div>
+                    <div>
+                        <h4 class="font-bold">Dr. Timnit Gebru</h4>
+                        <p class="text-sm text-cyan-300">AI Ethics Researcher</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-xl">
+                <div class="text-amber-300 text-5xl mb-4">"</div>
+                <p class="text-lg italic mb-6">The most ambitious application of AI for public good I've seen emerging from Africa. A blueprint for the world.</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-amber-400 mr-4"></div>
+                    <div>
+                        <h4 class="font-bold">Prof. Yoshua Bengio</h4>
+                        <p class="text-sm text-cyan-300">AI Pioneer, Turing Award Winner</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-xl">
+                <div class="text-amber-300 text-5xl mb-4">"</div>
+                <p class="text-lg italic mb-6">NITDA's platform solves the fundamental challenge of making institutional knowledge accessible and actionable.</p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-amber-400 mr-4"></div>
+                    <div>
+                        <h4 class="font-bold">Satya Nadella</h4>
+                        <p class="text-sm text-cyan-300">CEO, Microsoft</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 border border-cyan-500/30 rounded-2xl p-8 backdrop-blur-xl">
+            <div class="text-center max-w-4xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold mb-6">Join the Knowledge Revolution</h3>
+                <p class="text-blue-200 mb-8 max-w-2xl mx-auto">Be part of Nigeria's legacy project that will educate generations and inspire the world.</p>
+                <button class="bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 text-gray-900 font-bold px-8 py-4 rounded-full text-lg transition-all transform hover:scale-105 shadow-lg shadow-amber-500/30">
+                    Contribute to the Archive
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 pt-20 pb-10 px-4 md:px-12 border-t border-cyan-500/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-brain text-white"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-lg font-bold">NITDA/NCAIR</h1>
+                            <p class="text-xs text-cyan-300">Universal Learning Archive</p>
+                        </div>
+                    </div>
+                    <p class="text-blue-200 mb-6">Preserving knowledge. Empowering minds. Building Nigeria's intellectual legacy for eternity.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900/50 border border-cyan-500/30 flex items-center justify-center hover:bg-cyan-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900/50 border border-cyan-500/30 flex items-center justify-center hover:bg-cyan-500 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-900/50 border border-cyan-500/30 flex items-center justify-center hover:bg-cyan-500 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Platform</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Document AI</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Knowledge Graph</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Learning Paths</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">API Access</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Research Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Initiatives</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">National Digital Library</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">AI Research Grants</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">University Partnerships</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Rural Access Program</a></li>
+                        <li><a href="#" class="text-blue-200 hover:text-amber-300 transition">Heritage Preservation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-amber-300 mt-1 mr-3"></i>
+                            <span class="text-blue-200">NITDA Headquarters, Abuja, Nigeria</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-amber-300 mt-1 mr-3"></i>
+                            <span class="text-blue-200">knowledge@nitda.gov.ng</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt text-amber-300 mt-1 mr-3"></i>
+                            <span class="text-blue-200">+234 9 904 5232</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-10 border-t border-cyan-500/20 text-center">
+                <p class="text-blue-200">© 2023 NITDA/NCAIR Universal Learning Archive. All rights reserved. A legacy project for Nigeria and the world.</p>
+                <p class="text-cyan-500/70 mt-2">"From the present, we build eternity."</p>
+            </div>
+        </div>
+    </footer>
+
+     <a href="./pitch_deck2.html" class="fixed bottom-6 left-6 z-40">
+  <button class="flex items-center space-x-2 bg-white border-2 border-[#1e3a8a] text-[#1e3a8a] font-bold py-3 px-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 hover:bg-[#1e3a8a]/10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+    <span>Pitch Deck</span>
+  </button>
+</a>
+
+<script>
+      // NAV
+         // Mobile menu functionality
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('backdrop');
+        const menuIcon = document.getElementById('menu-icon');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        const body = document.body;
+
+        // Toggle menu function
+        function toggleMenu() {
+            mobileMenu.classList.toggle('open');
+            backdrop.classList.toggle('open');
+            body.classList.toggle('menu-open');
+            
+            // Change icon
+            if (mobileMenu.classList.contains('open')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            }
+        }
+
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking on links
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                toggleMenu();
+            }
+        });
+
+        // Your existing particle effect code
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+        // Floating particles effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroSection = document.querySelector('.hero-gradient');
+            if (heroSection) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    // Random properties
+                    const size = Math.random() * 5 + 2;
+                    const posX = Math.random() * 100;
+                    const posY = Math.random() * 100;
+                    const opacity = Math.random() * 0.5 + 0.1;
+                    const animationDuration = Math.random() * 20 + 10;
+                    const animationDelay = Math.random() * 5;
+                    
+                    // Apply styles
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.left = `${posX}%`;
+                    particle.style.top = `${posY}%`;
+                    particle.style.opacity = opacity;
+                    particle.style.animation = `float ${animationDuration}s ease-in-out ${animationDelay}s infinite`;
+                    
+                    // Add to hero section
+                    heroSection.appendChild(particle);
+                }
+            }
+        });
+</script>
+
+    <script>
+        
+        // Initialize Typed.js
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            var typed = new Typed('#typed', {
+                strings: ['Wisdom', 'Innovation', 'Legacy', 'Mastery'],
+                typeSpeed: 70,
+                backSpeed: 50,
+                loop: true,
+                showCursor: true,
+                cursorChar: '|',
+                autoInsertCss: true
+            });
+        });
+
+        // Particle Background
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.createElement('canvas');
+            document.getElementById('particle-canvas').appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 100;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2 + 0.5,
+                    speed: Math.random() * 0.5 + 0.1,
+                    angle: Math.random() * Math.PI * 2,
+                    distance: Math.random() * 50 + 20,
+                    color: Math.random() > 0.5 ? 'rgba(22, 163, 174, 0.5)' : 'rgba(251, 191, 36, 0.3)'
+                });
+            }
+            
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    // Move particle in circular motion
+                    particle.angle += particle.speed * 0.01;
+                    particle.x = canvas.width/2 + Math.cos(particle.angle) * particle.distance;
+                    particle.y = canvas.height/2 + Math.sin(particle.angle) * particle.distance;
+                    
+                    // Draw particle
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = particle.color;
+                    ctx.fill();
+                    
+                    // Draw connection lines
+                    particles.forEach(otherParticle => {
+                        const dx = particle.x - otherParticle.x;
+                        const dy = particle.y - otherParticle.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = rgba(22, 163, 174, ${0.2 * (1 - distance/100)});
+                            ctx.lineWidth = 0.3;
+                            ctx.moveTo(particle.x, particle.y);
+                            ctx.lineTo(otherParticle.x, otherParticle.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                requestAnimationFrame(drawParticles);
+            }
+            
+            drawParticles();
+            
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes float2 {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float2 {
+            animation: float2 7s ease-in-out infinite;
+        }
+        
+        .backdrop-blur-xl {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</body>
+</html>

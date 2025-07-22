@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5IRE ULA | NITDA/NCAIR Official Pitch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+
+
+     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+       <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+    
+/* ===== PRINT-SPECIFIC FIXES ===== */
+@media print {
+  /* Reset all colors for print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Base document styling */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Header/NITDA specific */
+  .nitda-header {
+    background: linear-gradient(#0055A4, #006400) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  /* Cards and containers */
+  .section-card, .tech-stack-item, .portal-btn {
+    background: white !important;
+    border: 2px solid #0055A4 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Text colors */
+  .glow-text, .title-font, h1, h2, h3, h4 {
+    color: #0055A4 !important;
+    background-image: none !important;
+    -webkit-text-fill-color: #0055A4 !important;
+  }
+  
+  /* Impact numbers */
+  .impact-number {
+    color: #0055A4 !important;
+    background-image: none !important;
+    -webkit-text-fill-color: #0055A4 !important;
+  }
+  
+  /* Buttons and badges */
+  .download-btn, .feature-badge {
+    background: #0055A4 !important;
+    color: white !important;
+    border: none !important;
+  }
+  
+  /* Icons and accents */
+  @media print {
+  [class*="text-[#FFD700]"],
+  [class*="text-[#00B4FF]"] {
+    color: #0055A4 !important;
+  }
+}
+
+  /* Hide unnecessary elements */
+  .no-print, .particles {
+    display: none !important;
+  }
+  
+  /* Show print-only elements */
+  .print-only {
+    display: block !important;
+  }
+  
+  /* QR code container */
+  .qrcode-container {
+    background: white !important;
+    border: 2px solid #0055A4 !important;
+  }
+  
+  /* Timeline elements */
+  .timeline-item::before {
+    background: #0055A4 !important;
+  }
+  
+  /* Force visible borders */
+  [class*="border-"] {
+    border-color: #0055A4 !important;
+  }
+}
+
+
+
+        :root {
+            /* --primary:  #F0F4FF;
+            --secondary:  #F0F4FF; */
+            --accent: #FFD700;
+            --accent-dark: #D4AF37;
+            --text: #F0F4FF;
+            --nitda-green: #006400;
+            --nitda-blue: #0055A4;
+            --tech-glow: rgba(0, 180, 255, 0.5);
+             --primary: #0F172A;
+            --secondary: #1E293B;
+            --accent: #F59E0B;
+            --accent-dark: #D97706;
+            --text: #E2E8F0;
+            --highlight: #7DD3FC;
+            --nitda-green: #006400;
+            --nitda-blue: #0055A4;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: radial-gradient(circle at center, var(--primary), #000);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .title-font {
+            font-family: 'Archivo', sans-serif;
+            font-weight: 700;
+        }
+        
+        .pitch-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            box-shadow: 0 0 60px rgba(0, 180, 255, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .nitda-header {
+            background: linear-gradient(135deg, var(--nitda-green), var(--nitda-blue));
+            border-bottom: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nitda-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .section-card {
+            background: rgba(10, 15, 36, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+            border-color: var(--accent);
+        }
+        
+        .tech-stack-item {
+            background: rgba(26, 31, 61, 0.8);
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-stack-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--tech-glow);
+            border-color: var(--accent);
+        }
+        
+        /* .impact-number {
+            font-size: 4rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        } */
+                 .impact-number {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(to right, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .screenshot-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .screenshot-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+        }
+        
+        .qrcode-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .qrcode-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.6);
+        }
+        
+        .feature-badge {
+            background: linear-gradient(135deg, var(--nitda-blue), var(--nitda-green));
+            box-shadow: 0 4px 15px rgba(0, 85, 164, 0.4);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .pitch-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .print-only {
+                display: block !important;
+            }
+        }
+        @media print {
+  body {
+    background: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .section-card, .tech-stack-item {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+  }
+  
+  .nitda-header {
+    background: #0055A4 !important;
+  }
+  
+  .feature-badge {
+    background: #0055A4 !important;
+  }
+}
+@media print {
+  [class*="gradient"] {
+    background: #0055A4 !important;
+  }
+}
+
+/* print */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;600&display=swap');
+    
+    :root {
+      --gold: #D4AF37;
+      --navy: #0A1930;
+      --emerald: #10B981;
+      --royal-blue: #1E3A8A;
+    }
+    
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+    }
+    
+    #qrcode {
+      margin: 20px auto;
+      width: fit-content;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    .letter-container {
+      background: white;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 20%);
+    }
+    
+    .signature {
+      font-family: 'Brush Script MT', cursive;
+    }
+    
+    .digital-seal {
+      border: 2px dashed var(--gold);
+      animation: pulse 2s infinite alternate;
+    }
+    
+    @keyframes pulse {
+      from { opacity: 0.7; }
+      to { opacity: 1; }
+    }
+    
+    @media print {
+      @page {
+        size: A4;
+        margin: 1cm;
+      }
+      body {
+        background: white !important;
+      }
+      .no-print {
+        display: none;
+      }
+    }
+    </style>
+</head>
+<body class="py-8 px-4">
+    <!-- Floating Tech Elements (Background) -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-10">
+        <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#FFD700] to-[#0055A4] mix-blend-screen blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-gradient-to-r from-[#006400] to-[#00B4FF] mix-blend-screen blur-3xl"></div>
+    </div>
+
+    <!-- Main Pitch Container -->
+    <div class="pitch-container">
+        <!-- Header with NITDA branding -->
+        <header class="nitda-header text-white py-12 px-6 md:px-16">
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-center md:text-left mb-8 md:mb-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 glow-text">5IRE Universal Learning Archive</h1>
+                        <p class="text-xl md:text-2xl opacity-90">Nigeria's AI-Powered Knowledge Legacy for NITDA/NCAIR</p>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <!-- <div class="bg-white p-3 rounded-xl shadow-xl">
+                            <img src="../signature.png">
+                            <div id="qrcode"></div>
+                        </div> -->
+                        <div class="qrcode-container mb-6" id="qrcode"></div>
+                                                  
+                        <div class="text-right">
+                            <p class="font-bold text-lg">Presented by</p>
+                            <p class="text-2xl">Nuhu Muhammad Datti</p>
+                            <p class="text-sm opacity-80">SIWES Innovator | AI Developer</p>
+                             <img src="./signature.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <p class="text-xl italic max-w-3xl mx-auto">"Preserving today's knowledge to empower tomorrow's innovators"</p>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="p-8 md:p-16 space-y-20">
+            <!-- Introduction -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                        <span class="text-2xl font-bold text-[#0A0F24]">1</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Introduction</h2>
+                </div>
+                
+                <div class="section-card p-8 md:p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <p class="text-xl mb-6">The <span class="text-[#FFD700] font-bold">5IRE Universal Learning Archive (ULA)</span> is a revolutionary AI-powered platform developed during my SIWES at IBBU to transform how Nigeria preserves and accesses tech knowledge.</p>
+                            <p class="text-xl">This system documents <span class="text-[#00B4FF]">Python programming</span> from beginner to advanced levels, provides <span class="text-[#00B4FF]">certified project-based learning</span>, and captures the <span class="text-[#00B4FF]">experiences of interns and corps members</span> for future generations.</p>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="relative w-64 h-64">
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#FFD700] to-[#00B4FF] rounded-full blur-xl opacity-30"></div>
+                                <div class="relative w-full h-full bg-[#1A1F3D] rounded-full flex items-center justify-center border-2 border-[#FFD700]/30">
+                                    <i class="fas fa-atom text-6xl text-[#FFD700] floating"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 p-6 bg-gradient-to-r from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-[#FFD700] mb-4">Vision Statement</h3>
+                        <p class="text-lg">To create Nigeria's most comprehensive AI-powered learning ecosystem that preserves institutional knowledge, enhances digital literacy, and provides perpetual access to transformative tech education.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Problem & Solution -->
+            <section >
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <div class="flex items-center mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                                <span class="text-2xl font-bold text-[#0A0F24]">2</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">The Problem</h2>
+                        </div>
+                        
+                        <div class="section-card p-8 h-full">
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md">
+                                        <i class="fas fa-exclamation-triangle text-xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2">Fragmented Learning</h3>
+                                        <p>No centralized platform exists for SIWES interns or young developers, leading to duplicated efforts and inconsistent learning.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md">
+                                        <i class="fas fa-history text-xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2">Lost Progress</h3>
+                                        <p>Valuable notes, projects, and lessons from previous interns are lost due to lack of documentation systems.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md">
+                                        <i class="fas fa-unlink text-xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-2">Disconnected Ecosystem</h3>
+                                        <p>No sustainable knowledge system connects government-backed tech initiatives with actual learners.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mt-20 mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                                <span class="text-2xl font-bold text-[#0A0F24]">3</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">Our Solution</h2>
+                        </div>
+                        
+                        <div class="section-card p-8 h-full">
+                            <div class="flex items-center mb-6">
+                                <div class="text-5xl text-[#FFD700] mr-5">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 class="text-3xl font-bold">5IRE ULA Platform</h3>
+                            </div>
+                            
+                            <p class="text-lg mb-6">An AI-powered knowledge preservation system that transforms how Nigeria learns and retains technical skills:</p>
+                            
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span class="text-lg">Centralized repository for all learning resources</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span class="text-lg">AI-enhanced interactive learning experience</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span class="text-lg">Blockchain-verified certification system</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span class="text-lg">Real-time progress tracking and analytics</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- Features with Interactive Gallery -->
+            <section class="pt-40">
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">4</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Platform Features</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Comprehensive Python Mastery</h3>
+                        <p class="mb-4">From basic syntax to advanced machine learning, with Nigeria-specific use cases and examples.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Core Feature</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Beginner to Expert</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Real-World Project Ecosystem</h3>
+                        <p class="mb-4">Hands-on projects solving actual Nigerian problems in finance, agriculture, and governance.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Practical Learning</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Portfolio Builder</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Blockchain-Verified Certification</h3>
+                        <p class="mb-4">Tamper-proof credentials with global verification through Ethereum blockchain.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                                                        <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Blockchain</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Verifiable</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">AI-Powered Mentor</h3>
+                        <p class="mb-4">24/7 personalized guidance with contextual understanding of Nigerian tech landscape.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">GPT-4 Powered</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Always Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Generational Knowledge Transfer</h3>
+                        <p class="mb-4">Preserves solutions from each cohort, creating a growing repository of institutional knowledge.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Legacy System</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Continuous Growth</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">NITDA Ecosystem Integration</h3>
+                        <p class="mb-4">Seamless connection with all NITDA/NCAIR initiatives and digital infrastructure projects.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Government Aligned</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Synergistic</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-card mt-10 p-10">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 mb-8 md:mb-0 md:mr-10">
+                            <h3 class="text-3xl font-bold mb-6">Feature Spotlight: AI Mentor</h3>
+                            <p class="text-xl mb-6">Our proprietary AI mentor understands:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Nigerian educational context and challenges</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Local tech infrastructure limitations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Cultural nuances in learning styles</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Regional industry demands and opportunities</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <div class="bg-[#1A1F3D] rounded-xl p-6 border border-[#00B4FF]/30">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4">
+                                        <i class="fas fa-robot text-2xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">AI Mentor Demo</h4>
+                                        <p class="text-sm text-[#A0A8C0]">Ask me anything about tech in Nigeria</p>
+                                    </div>
+                                </div>
+                                <div class="bg-[#0A0F24] rounded-lg p-4 h-48 overflow-y-auto mb-4">
+                                    <div class="chat-message ai-message mb-3">
+                                        <p class="text-sm bg-[#1A1F3D] p-3 rounded-lg">Hello! I'm your 5IRE ULA AI mentor. How can I help you with your Python learning or a Nigerian tech challenge today?</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <input type="text" placeholder="Ask about Python or Nigerian tech..." class="flex-1 bg-[#0A0F24] border border-[#00B4FF]/50 rounded-l-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00B4FF]">
+                                    <button class="bg-[#00B4FF] text-[#0A0F24] font-bold px-6 rounded-r-lg">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- Technology & Users -->
+            <section>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <div class="flex items-center mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                                <span class="text-2xl font-bold text-[#0A0F24]">5</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">Technology Stack</h2>
+                        </div>
+                        
+                        <div class="section-card p-8">
+                            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fab fa-html5 text-4xl text-[#E44D26] mb-3"></i>
+                                    <p class="font-medium">HTML5</p>
+                                </div>
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fab fa-css3-alt text-4xl text-[#264DE4] mb-3"></i>
+                                    <p class="font-medium">CSS3</p>
+                                </div>
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fab fa-js text-4xl text-[#F0DB4F] mb-3"></i>
+                                    <p class="font-medium">JavaScript</p>
+                                </div>
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fab fa-node-js text-4xl text-[#68A063] mb-3"></i>
+                                    <p class="font-medium">Node.js</p>
+                                </div>
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fas fa-database text-4xl text-[#00758F] mb-3"></i>
+                                    <p class="font-medium">MySQL</p>
+                                </div>
+                                <div class="tech-stack-item p-5 rounded-xl text-center">
+                                    <i class="fas fa-brain text-4xl text-[#10A37F] mb-3"></i>
+                                    <p class="font-medium">GPT-4</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 p-6 bg-gradient-to-r from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#FFD700]/30">
+                                <h3 class="text-xl font-bold text-[#FFD700] mb-3">Admin Features</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 bg-[#0A0F24] rounded-full text-sm">Content Management</span>
+                                    <span class="px-4 py-2 bg-[#0A0F24] rounded-full text-sm">User Analytics</span>
+                                    <span class="px-4 py-2 bg-[#0A0F24] rounded-full text-sm">Certificate Generation</span>
+                                    <span class="px-4 py-2 bg-[#0A0F24] rounded-full text-sm">AI Model Training</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                                <span class="text-2xl font-bold text-[#0A0F24]">6</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">Target Users</h2>
+                        </div>
+                        
+                        <div class="section-card p-8">
+                            <div class="space-y-6">
+                                <div class="p-6 bg-[#1A1F3D] rounded-xl flex items-center border border-[#FFD700]/20 hover:border-[#00B4FF] transition-all">
+                                    <div class="w-16 h-16 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 text-2xl text-[#0A0F24]">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold">SIWES Interns</h3>
+                                        <p class="text-[#A0A8C0]">Students gaining practical tech experience</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-[#1A1F3D] rounded-xl flex items-center border border-[#FFD700]/20 hover:border-[#00B4FF] transition-all">
+                                    <div class="w-16 h-16 rounded-full bg-[#00B4FF] flex items-center justify-center mr-5 text-2xl text-[#0A0F24]">
+                                        <i class="fas fa-flag"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold">NYSC Members</h3>
+                                        <p class="text-[#A0A8C0]">Graduates serving the nation</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-[#1A1F3D] rounded-xl flex items-center border border-[#FFD700]/20 hover:border-[#00B4FF] transition-all">
+                                    <div class="w-16 h-16 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 text-2xl text-[#0A0F24]">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold">Tech Instructors</h3>
+                                        <p class="text-[#A0A8C0]">Educators and mentors</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-[#1A1F3D] rounded-xl flex items-center border border-[#FFD700]/20 hover:border-[#00B4FF] transition-all">
+                                    <div class="w-16 h-16 rounded-full bg-[#00B4FF] flex items-center justify-center mr-5 text-2xl text-[#0A0F24]">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold">Developer Circles</h3>
+                                        <p class="text-[#A0A8C0]">Tech communities nationwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!-- Technology Stack with Interactive Elements -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">7</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Cutting-Edge Technology Stack</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-8">Core Architecture</h3>
+                            <div class="space-y-6">
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Python 3.11</h4>
+                                        <p>Core programming language with custom educational libraries</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Django 4.2</h4>
+                                        <p>High-performance backend framework with REST API</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">React 18</h4>
+                                        <p>Interactive frontend with dynamic learning interfaces</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/ethereum-1.svg" alt="Ethereum" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Ethereum Blockchain</h4>
+                                        <p>Smart contracts for credential verification and knowledge preservation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-8">AI & Advanced Components</h3>
+                            <div class="space-y-6">
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">GPT-4 API</h4>
+                                        <p>Custom-trained AI mentor with Nigerian tech knowledge base</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://raw.githubusercontent.com/pinecone-io/docs/main/img/pinecone-logo.svg" alt="Pinecone Vector DB" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Pinecone Vector DB</h4>
+                                        <p>Semantic search across all learning materials and solutions</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Docker Swarm</h4>
+                                        <p>Scalable container orchestration for nationwide deployment</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/aws-logo.svg" alt="AWS" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">AWS Educate</h4>
+                                        <p>Cloud infrastructure with Nigerian data sovereignty</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 p-8 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-[#00B4FF] mb-4">Technical Innovation Highlights</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">Custom NLP for Nigerian English</h4>
+                                <p class="text-sm">Specialized language processing tuned for Nigerian educational context and local tech terminology.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">Offline-First Design</h4>
+                                <p class="text-sm">Progressive Web App functionality for areas with intermittent connectivity.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">Blockchain Knowledge Hashing</h4>
+                                <p class="text-sm">Each learning module cryptographically preserved on Ethereum for verification.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">Generational Knowledge Graph</h4>
+                                <p class="text-sm">AI that maps relationships between solutions across different cohorts and years.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+            <!-- Impact -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                        <span class="text-2xl font-bold text-[#0A0F24]">8</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Measurable Impact</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center mb-12">
+                        <div>
+                            <div class="impact-number">25+</div>
+                            <p class="text-xl font-bold mt-2">Certified Learners</p>
+                            <p class="text-[#A0A8C0]">Already completed courses</p>
+                        </div>
+                        <div>
+                            <div class="impact-number">40%</div>
+                            <p class="text-xl font-bold mt-2">Faster Learning</p>
+                            <p class="text-[#A0A8C0]">Reported by platform users</p>
+                        </div>
+                        <div>
+                            <div class="impact-number">100%</div>
+                            <p class="text-xl font-bold mt-2">Positive Feedback</p>
+                            <p class="text-[#A0A8C0]">From initial user testing</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-[#1A1F3D] to-[#0A0F24] rounded-xl p-8 border border-[#FFD700]/30">
+                        <div class="flex items-start">
+                            <div class="text-4xl text-[#FFD700] mr-5">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div>
+                                <p class="text-xl italic mb-4">"The 5IRE platform completely transformed how I learn Python. The project-based approach made complex concepts click in ways traditional courses never did. This should be Nigeria's standard for tech education."</p>
+                                <p class="font-bold">— SIWES Participant, Computer Science</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Why NITDA -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                        <span class="text-2xl font-bold text-[#0A0F24]">9</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Strategic Value for NITDA/NCAIR</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="bg-gradient-to-br from-[#0A0F24] to-[#1A1F3D] p-8 rounded-xl border border-[#FFD700]/30">
+                            <h3 class="text-2xl font-bold text-[#FFD700] mb-5">Alignment with National Goals</h3>
+                            <ul class="space-y-5">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Directly supports NITDA's digital literacy initiatives</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Enhances NCAIR's research and innovation mandate</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Creates measurable impact for national tech development</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-[#0A0F24] to-[#1A1F3D] p-8 rounded-xl border border-[#FFD700]/30">
+                            <h3 class="text-2xl font-bold text-[#FFD700] mb-5">Implementation Pathway</h3>
+                            <ul class="space-y-5">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-star text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Official recognition under NITDA/NCAIR innovation portfolio</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-star text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Resource allocation for national scaling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-star text-[#0A0F24] text-sm"></i>
+                                    </div>
+                                    <span>Presentation to NCAIR technical team for integration</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-[#00B4FF] mb-6">Roadmap to National Implementation</h3>
+                        <div class="flex flex-wrap gap-4">
+                            <div class="px-6 py-3 bg-[#1A1F3D] rounded-full flex items-center border border-[#FFD700]/30">
+                                <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 text-[#0A0F24] font-bold">1</div>
+                                <span>Q3 2024: NITDA/NCAIR Pilot Deployment</span>
+                            </div>
+                            <div class="px-6 py-3 bg-[#1A1F3D] rounded-full flex items-center border border-[#00B4FF]/30">
+                                <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 text-[#0A0F24] font-bold">2</div>
+                                <span>Q4 2024: Additional Course Integration</span>
+                            </div>
+                            <div class="px-6 py-3 bg-[#1A1F3D] rounded-full flex items-center border border-[#FFD700]/30">
+                                <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 text-[#0A0F24] font-bold">3</div>
+                                <span>Q1 2025: National NYSC Rollout</span>
+                            </div>
+                            <div class="px-6 py-3 bg-[#1A1F3D] rounded-full flex items-center border border-[#00B4FF]/30">
+                                <div class="w-8 h-8 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 text-[#0A0F24] font-bold">4</div>
+                                <span>Q2 2025: African Expansion</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <div class="grid grid-cols-1 lg:grid-cols-2 mt-10 gap-8">
+                        <div class="p-8 bg-gradient-to-br from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#FFD700]/30">
+                            <h4 class="text-2xl font-bold text-[#FFD700] mb-4">Economic Impact</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Estimated $2.5B boost to Nigerian digital economy</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>70% reduction in onboarding time for new tech hires</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>40% increase in successful startup launches</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-8 bg-gradient-to-br from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#00B4FF]/30">
+                            <h4 class="text-2xl font-bold text-[#00B4FF] mb-4">Educational Impact</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>90% improvement in learning outcomes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Perpetual knowledge base for future generations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Standardized tech education across Nigeria</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </section>
+
+             <!-- Comparative Advantage -->
+                <div class="section-card mt-12 p-10">
+                    <h3 class="text-3xl font-bold text-center mb-10 text-[#FFD700]">Why 5IRE ULA Outshines Global Competitors</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="border-b border-[#FFD700]/30">
+                                    <th class="text-left pb-4 pl-4">Feature</th>
+                                    <th class="text-center pb-4">Global Platforms</th>
+                                    <th class="text-center pb-4 pr-4">5IRE ULA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Africa-Specific Content</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Blockchain Verification</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Institutional Knowledge Preservation</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">NITDA/NCAIR Integration</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Generational Learning Analytics</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-10 p-6 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                        <h4 class="text-xl font-bold text-[#00B4FF] mb-3">Global Recognition Potential</h4>
+                        <p>5IRE ULA is positioned to become Africa's first globally recognized tech education preservation system, putting Nigeria on the map as an innovator in sustainable digital education solutions.</p>
+                    </div>
+                </div>
+            
+            <!-- Screenshots -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg">
+                        <span class="text-2xl font-bold text-[#0A0F24]">10</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Platform Preview</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#FFD700]/20 rounded-xl">
+                            <div class="text-6xl text-[#FFD700] mb-4">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Dashboard Interface</h3>
+                            <p class="text-[#A0A8C0]">Personalized learning dashboard with progress tracking</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#00B4FF]/20 rounded-xl">
+                            <div class="text-6xl text-[#00B4FF] mb-4">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Certification System</h3>
+                            <p class="text-[#A0A8C0]">Blockchain-verified certificates with unique IDs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#FFD700]/20 rounded-xl">
+                            <div class="text-6xl text-[#FFD700] mb-4">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Assessment Results</h3>
+                            <p class="text-[#A0A8C0]">Detailed performance analytics and feedback</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#00B4FF]/20 rounded-xl">
+                            <div class="text-6xl text-[#00B4FF] mb-4">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Video Interviews</h3>
+                            <p class="text-[#A0A8C0]">Real experiences from past participants</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#FFD700]/20 rounded-xl">
+                            <div class="text-6xl text-[#FFD700] mb-4">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Project Gallery</h3>
+                            <p class="text-[#A0A8C0]">Showcase of completed student projects</p>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-item">
+                        <div class="bg-[#1A1F3D] h-64 flex flex-col items-center justify-center p-6 text-center border border-[#00B4FF]/20 rounded-xl">
+                            <div class="text-6xl text-[#00B4FF] mb-4">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">AI Assistant</h3>
+                            <p class="text-[#A0A8C0]">Instant answers to learning questions</p>
+                            <button onclick="window.print()" class="download-btn text-sm py-1 px-3 rounded ml-4">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+ <section id="demo">
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                    </div>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6">Interactive Demo</h3>
+                            <p class="text-xl mb-8">Experience key features of the 5IRE ULA platform through our live demo environment.</p>
+                            
+                            <div class="bg-[#1A1F3D] rounded-xl p-8 border border-[#FFD700]/30 mb-8">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 rounded-full bg-[#FFD700] flex items-center justify-center mr-4">
+                                        <i class="fas fa-play text-xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold">Quick Start Demo</h4>
+                                </div>
+                                <p class="mb-6">Try these sample interactions to see the platform in action:</p>
+                                <div class="space-y-4">
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#00B4FF]/30 transition-all">
+                                        "Show me Python solutions for agricultural challenges in Northern Nigeria"
+                                    </button>
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#FFD700]/30 transition-all">
+                                        "Explain blockchain in terms a beginner from Lagos would understand"
+                                    </button>
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#00B4FF]/30 transition-all">
+                                        "Display projects from 2023 NITDA interns that solved real government problems"
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#" class="download-btn px-6 py-3 text-[#0A0F24] font-bold rounded-full flex items-center">
+                                    <i class="fas fa-external-link-alt mr-3"></i> Launch Full Demo
+                                </a>
+                                <button class="px-6 py-3 bg-transparent border-2 border-[#FFD700] text-[#FFD700] font-bold rounded-full flex items-center hover:bg-[#FFD700]/10 transition-all">
+                                    <i class="fas fa-mobile-alt mr-3"></i> Mobile App Demo
+                                </button>
+                                <div class="qrcode-container mb-6"><img src="../signature.png">Nuhu Muhammad Datti</div>   
+                                <div class="qrcode-container mb-6" id="qrcode-footer"></div> 
+                                                             
+                        
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6">Key Screenshots</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="screenshot-item">
+                                    <img src="./img/CHAPTER1.png" alt="Dashboard" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Inspiring a Nation of Builders</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/NITDA.png" alt="Dashboard" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Inspiring a Nation of Builders</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/ECHO.png">
+                                    <p class="text-center mt-2 text-sm">Seeker of Transformation</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/ELONA.png">
+                                    <p class="text-center mt-2 text-sm"><strong>Elona:</strong>Elon Musk coming rival</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/PROBLEMS.png">
+                                    <p class="text-center mt-2 text-sm">Problems to be Solve</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/HOME (2).png">
+                                    <p class="text-center mt-2 text-sm">Home Page</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/OOP.png">
+                                    <p class="text-center mt-2 text-sm">OOP Learning Trail</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/RESOURCES.png">
+                                    <p class="text-center mt-2 text-sm">Resources</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/qUIZE.png" alt="Blockchain" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Quize Result</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="./img/QUIZE ANS.png">
+                                    <p class="text-center mt-2 text-sm">Quize Answer Review</p>
+                                </div>
+                                <div class="screenshot-item">
+                                <video src="./img/p.mp4" class="w-full rounded-lg" autoplay muted loop playsinline></video>
+                                <p class="text-center mt-2 text-sm">
+                                    <strong><i>Project</i> review:</strong> behind the scane
+                                </p>
+                            </div>
+                            <div class="screenshot-item">
+                                <video src="./img/review.mp4" class="w-full rounded-lg" autoplay muted loop playsinline></video>
+                                <p class="text-center mt-2 text-sm">
+                                    <strong><i></i>Inter Viewing</strong> Inters/Coppers
+                                </p>
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+           
+            </section>
+            
+  <!-- Print Button -->
+  <!-- <div class="max-w-4xl mx-auto mt-6 no-print">
+    <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg flex items-center mx-auto">
+      <i class="fas fa-print mr-2"></i> Print/Save This Legacy Document
+    </button>
+  </div> -->
+  
+        </main>
+        
+        <!-- Footer with contact and QR code -->
+        <footer class="nitda-header text-white py-14 px-8 md:px-16">
+            <div class="relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-10 md:mb-0 text-center md:text-left">
+                        <h3 class="text-3xl font-bold mb-6">Ready to Transform Tech Education?</h3>
+                        <div class="space-y-4">
+                            <p class="flex items-center justify-center md:justify-start text-lg">
+                                <i class="fas fa-user mr-4 text-xl"></i> Nuhu Muhammad Datti
+                            </p>
+                            <p class="flex items-center justify-center md:justify-start text-lg">
+                                <i class="fas fa-envelope mr-4 text-xl"></i> nuhumuhammaddatti.com
+                            </p>
+                            <p class="flex items-center justify-center md:justify-start text-lg">
+                                <i class="fas fa-phone mr-4 text-xl"></i> +234 808 844 0095
+                            </p>
+                            <p class="flex items-center justify-center md:justify-start text-lg">
+                                <i class="fas fa-link mr-4 text-xl"></i> https://nuhudatti.github.io/ula-project-proposal
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <!-- <div class="qrcode-container mb-6" id="qrcode-footer"></div>
+                        <img src="../signature.png"> -->
+                        
+                        <button id="downloadBtn"  onclick="window.print()" class="download-btn px-8 py-4 text-[#0A0F24] font-bold rounded-full flex items-center no-print">
+                            <i class="fas fa-download mr-3 text-xl"></i> Download Full Pitch Deck (PDF)
+                        </button>
+                        
+                    </div>
+                </div>
+                
+                <div class="mt-14 text-center text-lg">
+                    <p>© 2025 5IRE Universal Learning Archive | A Legacy Project for Nigeria's Tech Future</p>
+                    <p class="mt-2">Officially submitted to NITDA/NCAIR for consideration</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <div class="print-only fixed bottom-0 w-full py-4 text-center bg-[#0A0F24] text-white">
+        <p>5IRE Universal Learning Archive | Official Pitch Document | Printed on <span class="current-date"></span></p>
+    </div>
+
+    <!-- Print-only footer -->
+<div class="print-only" style="display: none;">
+  <div class="fixed bottom-0 left-0 right-0 bg-[#0055A4] text-white py-2 px-4 text-center text-sm">
+    <p>5IRE Universal Learning Archive | Official NITDA/NCAIR Pitch Document | Printed on: <span class="current-date"></span></p>
+    <p class="text-xs mt-1">Confidential - For Review Purposes Only</p>
+  </div>
+</div>
+
+<!-- Print-specific cover page -->
+<div class="print-only" style="display: none; page-break-after: always;">
+  <div class="h-screen flex flex-col items-center justify-center p-8 text-center">
+    <img src="./imgs/nitda_ncair.jpg" alt="NITDA Logo" class="h-24 mb-8">
+    <h1 class="text-4xl font-bold text-[#0055A4] mb-4">5IRE Universal Learning Archive</h1>
+    <h2 class="text-2xl text-[#006400] mb-8">Official Pitch Document</h2>
+    <div class="border-t-2 border-b-2 border-[#0055A4] py-6 my-6 w-3/4 mx-auto">
+      <p class="text-lg">Submitted to: National Information Technology Development Agency (NITDA)</p>
+      <p class="text-lg mt-2">Submitted by: Nuhu Muhammad Datti</p>
+    </div>
+    <p class="text-sm mt-8"><span class="current-date"></span></p>
+  </div>
+</div>
+<a href="./index.html" class="fixed bottom-6 left-6 z-40">
+  <button class="flex items-center space-x-2 bg-white border-2 border-[#1e3a8a] text-[#1e3a8a] font-bold py-3 px-4 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 hover:bg-[#1e3a8a]/10">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+    </svg>
+    <span>Back</span>
+  </button>
+</a>
+    <script>
+        
+        // Generate QR code
+         document.addEventListener('DOMContentLoaded', function() {
+            // Generate QR Code
+             const qrcode = new QRCode(document.getElementById("qrcode"), {
+                 text: "https://nuhudatti.github.io/ula-project-proposal",
+                 width: 160,
+                 height: 160,
+                colorDark: "#000000",
+                 colorLight: "#ffffff",
+                 correctLevel: QRCode.CorrectLevel.H
+             });
+              const qrcodeFooter = new QRCode(document.getElementById("qrcode-footer"), {
+                 text: "https://nuhudatti.github.io/ula-project-proposal",
+                 width: 160,
+                 height: 160,
+                colorDark: "#000000",
+                 colorLight: "#ffffff",
+                 correctLevel: QRCode.CorrectLevel.H
+             });
+            
+        
+document.getElementById('downloadBtn').addEventListener('click', function() {
+  const element = document.querySelector('.pitch-container');
+  const opt = {
+    margin: [10, 5, 10, 5],
+    filename: '5ire-ula-pitch-deck.pdf',
+    image: { 
+      type: 'jpeg', 
+      quality: 1,
+      escapeOptions: {
+        quality: 1,
+        useCORS: true
+      }
+    },
+    html2canvas: { 
+      scale: 3,
+      logging: true,
+      useCORS: true,
+      allowTaint: true,
+      letterRendering: true,
+      backgroundColor: '#FFFFFF',
+      ignoreElements: (element) => {
+        return element.classList.contains('no-print');
+      }
+    },
+    jsPDF: { 
+      unit: 'mm', 
+      format: 'a4', 
+      orientation: 'portrait',
+      hotfixes: ["px_scaling"]
+    },
+    pagebreak: { 
+      mode: ['avoid-all', 'css', 'legacy'] 
+    }
+  };
+  
+  // Show loading state
+  const btn = document.getElementById('downloadBtn');
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Generating PDF...';
+  btn.disabled = true;
+  
+  // Create PDF
+  html2pdf()
+    .set(opt)
+    .from(element)
+    .toPdf()
+    .get('pdf')
+    .then(function(pdf) {
+      // Add watermark
+      const totalPages = pdf.internal.getNumberOfPages();
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i);
+        pdf.setFontSize(10);
+        pdf.setTextColor(150, 150, 150);
+        pdf.text(
+          'NITDA/NCAIR Official Document - 5IRE ULA Pitch Deck',
+          pdf.internal.pageSize.getWidth() / 2,
+          pdf.internal.pageSize.getHeight() - 10,
+          { align: 'center' }
+        );
+      }
+      return pdf.save();
+    })
+    .then(() => {
+      btn.innerHTML = '<i class="fas fa-check mr-2"></i> PDF Ready';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fas fa-download mr-2"></i> Download PDF';
+        btn.disabled = false;
+      }, 3000);
+    });
+});
+// Set current date in all elements with class 'current-date'
+function updatePrintDates() {
+  const now = new Date();
+  const options = { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  };
+  document.querySelectorAll('.current-date').forEach(el => {
+    el.textContent = now.toLocaleDateString('en-US', options);
+  });
+}
+
+// Call on load and before PDF generation
+document.addEventListener('DOMContentLoaded', updatePrintDates);
+document.getElementById('downloadBtn').addEventListener('click', updatePrintDates);
+// Test print styling
+function testPrintStyles() {
+  const style = document.createElement('style');
+  style.innerHTML = `@media print { * { -webkit-print-color-adjust: exact !important; } }`;
+  document.head.appendChild(style);
+  window.print();
+}
+            // Set current date
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.querySelectorAll('.current-date').forEach(el => {
+                el.textContent = now.toLocaleDateString('en-US', options);
+            });
+        });
+    </script>
+</body>
+</html>

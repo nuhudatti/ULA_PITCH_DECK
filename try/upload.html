@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Document - Learning Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+  <!-- Header -->
+  <header class="p-6 bg-gray-800 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Upload Document</h1>
+      <nav class="space-x-4">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="chat.html" class="hover:underline">Ask AI</a>
+        <a href="admin.html" class="hover:underline">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Upload Section -->
+  <section class="py-20 px-6">
+    <div class="max-w-md mx-auto bg-gray-800 p-6 rounded-lg shadow-lg">
+      <h2 class="text-3xl font-bold mb-6 text-center">Upload Educational Document</h2>
+      <input type="file" id="fileInput" class="w-full mb-4 text-gray-900 rounded p-2" accept=".pdf,.doc,.docx,.txt" />
+      <button onclick="handleUpload()" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-white font-semibold w-full">Upload</button>
+      <p id="uploadMsg" class="mt-4 text-sm text-center"></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-gray-900 border-t border-gray-700 mt-auto">
+    <p>&copy; 2025 NITDA / NCAIR Learning Archive. Powered by 5IRE Movement.</p>
+  </footer>
+
+  <script>
+    function handleUpload() {
+      const fileInput = document.getElementById('fileInput');
+      const uploadMsg = document.getElementById('uploadMsg');
+      if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        uploadMsg.textContent = `✅ "${fileName}" uploaded successfully (simulation)`;
+        uploadMsg.className = 'text-green-400 text-sm text-center';
+      } else {
+        uploadMsg.textContent = '❌ Please select a document to upload';
+        uploadMsg.className = 'text-red-400 text-sm text-center';
+      }
+    }
+  </script>
+</body>
+</html>

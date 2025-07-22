@@ -1,0 +1,1337 @@
+i was genereting this page but in the last chats reference fron the all and continue the page <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5IRE ULA | The Future of Tech Education in Africa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0F24;
+            --secondary: #1A1F3D;
+            --accent: #FFD700;
+            --accent-dark: #D4AF37;
+            --nitda-green: #006400;
+            --nitda-blue: #0055A4;
+            --tech-glow: rgba(0, 180, 255, 0.7);
+            --neon-glow: 0 0 10px rgba(0, 180, 255, 0.8), 0 0 20px rgba(0, 180, 255, 0.6);
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: radial-gradient(ellipse at bottom, var(--primary) 0%, #000 100%);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4, .title-font {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,84,164,0.8) 0%, rgba(0,100,0,0.9) 100%);
+        }
+        
+        .pitch-container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            box-shadow: var(--neon-glow);
+            border-radius: 0;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(0, 180, 255, 0.2);
+        }
+        
+        .nitda-header {
+            background: linear-gradient(135deg, var(--nitda-green), var(--nitda-blue));
+            border-bottom: 5px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nitda-header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .section-card {
+            background: rgba(10, 15, 36, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .section-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--nitda-blue));
+        }
+        
+        .section-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+            border-color: var(--accent);
+        }
+        
+        .tech-stack-item {
+            background: rgba(26, 31, 61, 0.9);
+            border: 1px solid rgba(0, 180, 255, 0.5);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .tech-stack-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--tech-glow);
+            border-color: var(--accent);
+        }
+        
+        .impact-number {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            line-height: 1;
+        }
+        
+        .screenshot-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .screenshot-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.6);
+        }
+        
+        .qrcode-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            border: 3px solid var(--accent);
+        }
+        
+        .qrcode-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.6);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 45%,
+                rgba(255, 255, 255, 0.8) 50%,
+                rgba(255, 255, 255, 0) 55%
+            );
+            transform: rotate(30deg);
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.8);
+        }
+        
+        .download-btn:hover::after {
+            animation: shine 1.5s infinite;
+        }
+        
+        .feature-badge {
+            background: linear-gradient(135deg, var(--nitda-blue), var(--nitda-green));
+            box-shadow: 0 4px 20px rgba(0, 85, 164, 0.6);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        
+        .tech-glow {
+            box-shadow: 0 0 15px rgba(0, 180, 255, 0.7);
+        }
+        
+        .parallax-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+            z-index: -1;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes shine {
+            from { transform: translateX(-100%) rotate(30deg); }
+            to { transform: translateX(100%) rotate(30deg); }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .print-only {
+            display: none;
+        }
+        
+        /* Interactive 3D Card Effect */
+        .interactive-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        /* Particle Network Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            .impact-number {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Particle Network Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Tech Elements (Background) -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 opacity-20">
+        <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#FFD700] to-[#0055A4] mix-blend-screen blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-gradient-to-r from-[#006400] to-[#00B4FF] mix-blend-screen blur-3xl"></div>
+        <div class="absolute top-1/3 right-1/4 w-80 h-80 rounded-full bg-gradient-to-r from-[#FF00AA] to-[#AA00FF] mix-blend-screen blur-3xl opacity-30"></div>
+    </div>
+
+    <!-- Main Pitch Container -->
+    <div class="pitch-container">
+        <!-- Hero Section with 3D Effect -->
+        <section class="hero-gradient text-white py-20 px-6 md:px-16 relative overflow-hidden">
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
+                <div class="absolute top-0 left-0 w-full h-full bg-radial-gradient opacity-20"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-12">
+                    <div class="text-center lg:text-left mb-12 lg:mb-0 flex-1">
+                        <div class="inline-block px-6 py-2 bg-black/30 rounded-full border border-[#FFD700]/50 mb-6">
+                            <p class="text-[#FFD700] font-bold tracking-widest">NITDA/NCAIR OFFICIAL PITCH</p>
+                        </div>
+                        
+                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 glow-text leading-tight">
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FFD700] to-[#00B4FF]">5IRE ULA</span><br>
+                            <span class="text-4xl md:text-6xl">Universal Learning Archive</span>
+                        </h1>
+                        
+                        <p class="text-xl md:text-2xl max-w-3xl mx-auto lg:mx-0 mb-10">
+                            Africa's first AI-powered, blockchain-verified knowledge preservation system creating an eternal legacy for Nigerian tech education
+                        </p>
+                        
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                            <a href="#demo" class="download-btn px-8 py-4 text-[#0A0F24] font-bold rounded-full flex items-center">
+                                <i class="fas fa-eye mr-3 text-xl"></i> Live Demo
+                            </a>
+                            <button id="downloadBtn" class="px-8 py-4 bg-transparent border-2 border-[#FFD700] text-[#FFD700] font-bold rounded-full flex items-center hover:bg-[#FFD700]/10 transition-all">
+                                <i class="fas fa-download mr-3 text-xl"></i> Download PDF
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 max-w-2xl interactive-card" id="interactiveCard">
+                        <div class="relative w-full h-96 lg:h-[500px] bg-[#1A1F3D] rounded-3xl overflow-hidden border-2 border-[#FFD700]/50 shadow-2xl">
+                            <div class="absolute inset-0 bg-dots-pattern opacity-10"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="text-center p-8">
+                                    <i class="fas fa-atom text-9xl text-[#FFD700] floating mb-6"></i>
+                                    <h3 class="text-3xl font-bold mb-2">The Future of Tech Education</h3>
+                                    <p class="text-[#A0A8C0]">Experience the revolution</p>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0A0F24] to-transparent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0F24] to-transparent z-10"></div>
+        </section>
+        
+        <!-- NITDA Branding Section -->
+        <header class="nitda-header text-white py-12 px-6 md:px-16">
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-center md:text-left mb-8 md:mb-0">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Presented to National Information Technology Development Agency</h2>
+                        <p class="text-xl md:text-2xl opacity-90">Nigeria's premier tech innovation authority</p>
+                    </div>
+                    <div class="flex items-center space-x-6">
+                        <div class="bg-white p-3 rounded-xl shadow-xl border-2 border-[#FFD700]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/NITDA_Logo.png/600px-NITDA_Logo.png" alt="NITDA Logo" class="h-20">
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-lg">Innovation By</p>
+                            <p class="text-2xl text-[#FFD700]">Nuhu Muhammad Datti</p>
+                            <p class="text-sm opacity-80">AI Developer & Tech Visionary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center max-w-4xl mx-auto">
+                    <p class="text-2xl md:text-3xl italic font-medium">"A legacy platform that will redefine tech education in Africa and position Nigeria as the continent's digital innovation hub"</p>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="p-8 md:p-16 space-y-24 max-w-7xl mx-auto">
+            <!-- Introduction with Video Embed -->
+            <section id="introduction">
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">1</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">The 5IRE Revolution</h2>
+                </div>
+                
+                <div class="section-card p-0 overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <div class="p-8 md:p-12">
+                            <p class="text-xl mb-6">The <span class="text-[#FFD700] font-bold">5IRE Universal Learning Archive (ULA)</span> is not just another e-learning platform - it's a paradigm shift in how Africa preserves and disseminates technical knowledge.</p>
+                            <p class="text-xl mb-8">Developed during my SIWES at IBBU, this AI-powered ecosystem combines:</p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="p-5 bg-[#1A1F3D]/50 rounded-xl border border-[#FFD700]/20">
+                                    <i class="fas fa-brain text-3xl text-[#00B4FF] mb-3"></i>
+                                    <h3 class="text-xl font-bold mb-2">AI-Powered Learning</h3>
+                                    <p>Adaptive curriculum that evolves with each learner</p>
+                                </div>
+                                <div class="p-5 bg-[#1A1F3D]/50 rounded-xl border border-[#00B4FF]/20">
+                                    <i class="fas fa-link text-3xl text-[#FFD700] mb-3"></i>
+                                    <h3 class="text-xl font-bold mb-2">Blockchain Verification</h3>
+                                    <p>Immutable certification and credentialing</p>
+                                </div>
+                                <div class="p-5 bg-[#1A1F3D]/50 rounded-xl border border-[#FFD700]/20">
+                                    <i class="fas fa-database text-3xl text-[#00B4FF] mb-3"></i>
+                                    <h3 class="text-xl font-bold mb-2">Knowledge Preservation</h3>
+                                    <p>Perpetual archive of Nigeria's tech evolution</p>
+                                </div>
+                                <div class="p-5 bg-[#1A1F3D]/50 rounded-xl border border-[#00B4FF]/20">
+                                    <i class="fas fa-network-wired text-3xl text-[#FFD700] mb-3"></i>
+                                    <h3 class="text-xl font-bold mb-2">Ecosystem Integration</h3>
+                                    <p>Seamless connection with NITDA/NCAIR systems</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative min-h-96 bg-[#0A0F24] flex items-center justify-center">
+                            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80')] bg-cover bg-center opacity-20"></div>
+                            <div class="relative z-10 p-8 text-center">
+                                <div class="inline-block p-4 bg-[#1A1F3D] rounded-2xl border-2 border-[#FFD700]/50 shadow-2xl">
+                                    <i class="fas fa-play-circle text-6xl text-[#FFD700] mb-4 pulse"></i>
+                                    <h3 class="text-2xl font-bold mb-2">Watch the 5IRE Vision</h3>
+                                    <p class="text-[#A0A8C0] mb-4">90-second concept video</p>
+                                    <button class="px-6 py-3 bg-[#FFD700] text-[#0A0F24] font-bold rounded-full">
+                                        Play Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-8 md:p-12 bg-gradient-to-r from-[#1A1F3D] to-[#0A0F24] border-t border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-[#FFD700] mb-4">Global Legacy Statement</h3>
+                        <p class="text-2xl">"To create Africa's most comprehensive AI-powered learning ecosystem that will preserve institutional knowledge for centuries, enhance digital literacy across generations, and establish Nigeria as the continent's premier tech education hub - a legacy that will outshine globally and echo through eternity."</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Problem & Solution with Interactive Tabs -->
+            <section>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <div class="flex items-center mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                                <span class="text-2xl font-bold text-[#0A0F24]">2</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">The Critical Problem</h2>
+                        </div>
+                        
+                        <div class="section-card p-8 h-full">
+                            <div class="space-y-8">
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md tech-glow">
+                                        <i class="fas fa-exclamation-triangle text-2xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold mb-3">Africa's Brain Drain Crisis</h3>
+                                        <p class="text-lg">Each year, Nigeria loses billions in intellectual property as skilled professionals leave without proper knowledge transfer systems.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md tech-glow">
+                                        <i class="fas fa-history text-2xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold mb-3">Reinventing the Wheel</h3>
+                                        <p class="text-lg">New interns and corps members waste months solving problems already solved by predecessors due to lack of documentation.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-14 h-14 rounded-full bg-[#FFD700] flex items-center justify-center mr-5 mt-1 shadow-md tech-glow">
+                                        <i class="fas fa-unlink text-2xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-2xl font-bold mb-3">Fragmented Ecosystem</h3>
+                                        <p class="text-lg">No centralized platform connects government initiatives (NITDA, NCAIR, NYSC) with actual learners and innovators.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="p-6 bg-[#1A1F3D] rounded-xl border border-[#FF00AA]/30 mt-8">
+                                    <h4 class="text-xl font-bold text-[#FFD700] mb-3">The Cost to Nigeria</h4>
+                                    <p>Estimated $500M annual loss in productivity due to inefficient knowledge transfer in tech education and professional training.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center mb-10">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                                <span class="text-2xl font-bold text-[#0A0F24]">3</span>
+                            </div>
+                            <h2 class="text-4xl font-bold glow-text">Our Transformative Solution</h2>
+                        </div>
+                        
+                        <div class="section-card p-8 h-full">
+                            <div class="flex items-center mb-8">
+                                <div class="text-6xl text-[#FFD700] mr-6">
+                                    <i class="fas fa-lightbulb"></i>
+                                </div>
+                                <h3 class="text-4xl font-bold">5IRE ULA Platform</h3>
+                            </div>
+                            
+                            <p class="text-xl mb-8">An AI-powered, blockchain-secured knowledge preservation system that will revolutionize tech education in Africa:</p>
+                            
+                            <ul class="space-y-6">
+                                <li class="flex items-start p-4 bg-[#1A1F3D]/50 rounded-lg border border-[#00B4FF]/20">
+                                    <div class="w-10 h-10 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">Perpetual Knowledge Bank</h4>
+                                        <p>Immutable archive of all learning resources, projects, and institutional knowledge</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start p-4 bg-[#1A1F3D]/50 rounded-lg border border-[#FFD700]/20">
+                                    <div class="w-10 h-10 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">AI-Powered Mentorship</h4>
+                                        <p>GPT-4 assistant trained on Nigeria-specific tech challenges and solutions</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start p-4 bg-[#1A1F3D]/50 rounded-lg border border-[#00B4FF]/20">
+                                    <div class="w-10 h-10 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">Blockchain Certification</h4>
+                                        <p>Tamper-proof credentials verifiable anywhere in the world</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start p-4 bg-[#1A1F3D]/50 rounded-lg border border-[#FFD700]/20">
+                                    <div class="w-10 h-10 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1 shadow-md">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">Generational Analytics</h4>
+                                        <p>Track learning evolution across cohorts and identify national tech trends</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Comparative Advantage -->
+                <div class="section-card mt-12 p-10">
+                    <h3 class="text-3xl font-bold text-center mb-10 text-[#FFD700]">Why 5IRE ULA Outshines Global Competitors</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="border-b border-[#FFD700]/30">
+                                    <th class="text-left pb-4 pl-4">Feature</th>
+                                    <th class="text-center pb-4">Global Platforms</th>
+                                    <th class="text-center pb-4 pr-4">5IRE ULA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Africa-Specific Content</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Blockchain Verification</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Institutional Knowledge Preservation</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="border-b border-[#1A1F3D] hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">NITDA/NCAIR Integration</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr class="hover:bg-[#1A1F3D]/50">
+                                    <td class="py-4 pl-4">Generational Learning Analytics</td>
+                                    <td class="text-center text-[#FF6B6B]"><i class="fas fa-times"></i></td>
+                                    <td class="text-center text-[#00FFAA] pr-4"><i class="fas fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="mt-10 p-6 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                        <h4 class="text-xl font-bold text-[#00B4FF] mb-3">Global Recognition Potential</h4>
+                        <p>5IRE ULA is positioned to become Africa's first globally recognized tech education preservation system, putting Nigeria on the map as an innovator in sustainable digital education solutions.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Features with Interactive Gallery -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">4</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">World-Class Features</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Comprehensive Python Mastery</h3>
+                        <p class="mb-4">From basic syntax to advanced machine learning, with Nigeria-specific use cases and examples.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Core Feature</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Beginner to Expert</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Real-World Project Ecosystem</h3>
+                        <p class="mb-4">Hands-on projects solving actual Nigerian problems in finance, agriculture, and governance.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Practical Learning</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Portfolio Builder</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Blockchain-Verified Certification</h3>
+                        <p class="mb-4">Tamper-proof credentials with global verification through Ethereum blockchain.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                                                        <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Blockchain</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Verifiable</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">AI-Powered Mentor</h3>
+                        <p class="mb-4">24/7 personalized guidance with contextual understanding of Nigerian tech landscape.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">GPT-4 Powered</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Always Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#FFD700] mb-5">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Generational Knowledge Transfer</h3>
+                        <p class="mb-4">Preserves solutions from each cohort, creating a growing repository of institutional knowledge.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Legacy System</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Continuous Growth</span>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-8">
+                        <div class="text-6xl text-[#00B4FF] mb-5">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">NITDA Ecosystem Integration</h3>
+                        <p class="mb-4">Seamless connection with all NITDA/NCAIR initiatives and digital infrastructure projects.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="feature-badge text-xs text-white px-3 py-1 rounded-full">Government Aligned</span>
+                            <span class="bg-[#1A1F3D] text-xs text-white px-3 py-1 rounded-full">Synergistic</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-card mt-10 p-10">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex-1 mb-8 md:mb-0 md:mr-10">
+                            <h3 class="text-3xl font-bold mb-6">Feature Spotlight: AI Mentor</h3>
+                            <p class="text-xl mb-6">Our proprietary AI mentor understands:</p>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Nigerian educational context and challenges</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Local tech infrastructure limitations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Cultural nuances in learning styles</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Regional industry demands and opportunities</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex-1">
+                            <div class="bg-[#1A1F3D] rounded-xl p-6 border border-[#00B4FF]/30">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4">
+                                        <i class="fas fa-robot text-2xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">AI Mentor Demo</h4>
+                                        <p class="text-sm text-[#A0A8C0]">Ask me anything about tech in Nigeria</p>
+                                    </div>
+                                </div>
+                                <div class="bg-[#0A0F24] rounded-lg p-4 h-48 overflow-y-auto mb-4">
+                                    <div class="chat-message ai-message mb-3">
+                                        <p class="text-sm bg-[#1A1F3D] p-3 rounded-lg">Hello! I'm your 5IRE ULA AI mentor. How can I help you with your Python learning or a Nigerian tech challenge today?</p>
+                                    </div>
+                                </div>
+                                <div class="flex">
+                                    <input type="text" placeholder="Ask about Python or Nigerian tech..." class="flex-1 bg-[#0A0F24] border border-[#00B4FF]/50 rounded-l-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00B4FF]">
+                                    <button class="bg-[#00B4FF] text-[#0A0F24] font-bold px-6 rounded-r-lg">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Technology Stack with Interactive Elements -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">5</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Cutting-Edge Technology Stack</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-8">Core Architecture</h3>
+                            <div class="space-y-6">
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/python-5.svg" alt="Python" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Python 3.11</h4>
+                                        <p>Core programming language with custom educational libraries</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="Django" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Django 4.2</h4>
+                                        <p>High-performance backend framework with REST API</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/react-2.svg" alt="React" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">React 18</h4>
+                                        <p>Interactive frontend with dynamic learning interfaces</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/ethereum-1.svg" alt="Ethereum" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Ethereum Blockchain</h4>
+                                        <p>Smart contracts for credential verification and knowledge preservation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-8">AI & Advanced Components</h3>
+                            <div class="space-y-6">
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/openai-2.svg" alt="OpenAI" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">GPT-4 API</h4>
+                                        <p>Custom-trained AI mentor with Nigerian tech knowledge base</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/pinecone-vector-logo.svg" alt="Pinecone" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Pinecone Vector DB</h4>
+                                        <p>Semantic search across all learning materials and solutions</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#FFD700]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/docker.svg" alt="Docker" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">Docker Swarm</h4>
+                                        <p>Scalable container orchestration for nationwide deployment</p>
+                                    </div>
+                                </div>
+                                <div class="tech-stack-item p-6 rounded-xl flex items-start">
+                                    <div class="w-16 h-16 bg-[#0A0F24] rounded-lg flex items-center justify-center mr-6 border border-[#00B4FF]/30">
+                                        <img src="https://cdn.worldvectorlogo.com/logos/aws-logo.svg" alt="AWS" class="h-10">
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold mb-2">AWS Educate</h4>
+                                        <p>Cloud infrastructure with Nigerian data sovereignty</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 p-8 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-[#00B4FF] mb-4">Technical Innovation Highlights</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">Custom NLP for Nigerian English</h4>
+                                <p class="text-sm">Specialized language processing tuned for Nigerian educational context and local tech terminology.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">Offline-First Design</h4>
+                                <p class="text-sm">Progressive Web App functionality for areas with intermittent connectivity.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">Blockchain Knowledge Hashing</h4>
+                                <p class="text-sm">Each learning module cryptographically preserved on Ethereum for verification.</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">Generational Knowledge Graph</h4>
+                                <p class="text-sm">AI that maps relationships between solutions across different cohorts and years.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Impact Metrics with Animated Numbers -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">6</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Transformational Impact</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <h3 class="text-3xl font-bold mb-12 text-center">Projected 5-Year Impact on Nigerian Tech Education</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                        <div class="text-center">
+                            <div class="impact-number mb-4" data-count="250000">0</div>
+                            <h4 class="text-xl font-bold mb-2">Trained Developers</h4>
+                            <p class="text-[#A0A8C0]">Through NITDA/NCAIR programs</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="impact-number mb-4" data-count="95">0</div>
+                            <h4 class="text-xl font-bold mb-2">% Knowledge Retention</h4>
+                            <p class="text-[#A0A8C0]">Institutional solutions preserved</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="impact-number mb-4" data-count="5000">0</div>
+                            <h4 class="text-xl font-bold mb-2">Real-World Projects</h4>
+                            <p class="text-[#A0A8C0]">Solving Nigerian challenges</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="impact-number mb-4" data-count="1">0</div>
+                            <h4 class="text-xl font-bold mb-2">Global Recognition</h4>
+                            <p class="text-[#A0A8C0]">First African system of its kind</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="p-8 bg-gradient-to-br from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#FFD700]/30">
+                            <h4 class="text-2xl font-bold text-[#FFD700] mb-4">Economic Impact</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Estimated $2.5B boost to Nigerian digital economy</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>70% reduction in onboarding time for new tech hires</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#FFD700] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>40% increase in successful startup launches</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="p-8 bg-gradient-to-br from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#00B4FF]/30">
+                            <h4 class="text-2xl font-bold text-[#00B4FF] mb-4">Educational Impact</h4>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>90% improvement in learning outcomes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Perpetual knowledge base for future generations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-6 h-6 rounded-full bg-[#00B4FF] flex items-center justify-center mr-4 mt-1">
+                                        <i class="fas fa-check text-xs text-[#0A0F24]"></i>
+                                    </div>
+                                    <span>Standardized tech education across Nigeria</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Demo Screenshots with Interactive Gallery -->
+            <section id="demo">
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">7</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Platform Preview</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6">Interactive Demo</h3>
+                            <p class="text-xl mb-8">Experience key features of the 5IRE ULA platform through our live demo environment.</p>
+                            
+                            <div class="bg-[#1A1F3D] rounded-xl p-8 border border-[#FFD700]/30 mb-8">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 rounded-full bg-[#FFD700] flex items-center justify-center mr-4">
+                                        <i class="fas fa-play text-xl text-[#0A0F24]"></i>
+                                    </div>
+                                    <h4 class="text-xl font-bold">Quick Start Demo</h4>
+                                </div>
+                                <p class="mb-6">Try these sample interactions to see the platform in action:</p>
+                                <div class="space-y-4">
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#00B4FF]/30 transition-all">
+                                        "Show me Python solutions for agricultural challenges in Northern Nigeria"
+                                    </button>
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#FFD700]/30 transition-all">
+                                        "Explain blockchain in terms a beginner from Lagos would understand"
+                                    </button>
+                                    <button class="w-full text-left bg-[#0A0F24] hover:bg-[#0A0F24]/80 p-4 rounded-lg border border-[#00B4FF]/30 transition-all">
+                                        "Display projects from 2023 NITDA interns that solved real government problems"
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#" class="download-btn px-6 py-3 text-[#0A0F24] font-bold rounded-full flex items-center">
+                                    <i class="fas fa-external-link-alt mr-3"></i> Launch Full Demo
+                                </a>
+                                <button class="px-6 py-3 bg-transparent border-2 border-[#FFD700] text-[#FFD700] font-bold rounded-full flex items-center hover:bg-[#FFD700]/10 transition-all">
+                                    <i class="fas fa-mobile-alt mr-3"></i> Mobile App Demo
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold mb-6">Key Screenshots</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="screenshot-item">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Dashboard" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Learning Dashboard</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="AI Mentor" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">AI Mentor Interface</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Blockchain" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Blockchain Verification</p>
+                                </div>
+                                <div class="screenshot-item">
+                                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Projects" class="w-full h-auto rounded-lg">
+                                    <p class="text-center mt-2 text-sm">Project Gallery</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Roadmap with Timeline -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">8</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Implementation Roadmap</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="timeline relative">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-8 md:left-1/2 h-full w-1 bg-gradient-to-b from-[#FFD700] to-[#00B4FF] transform -translate-x-1/2"></div>
+                        
+                        <!-- Timeline Items -->
+                        <div class="space-y-12">
+                            <!-- Q3 2023 -->
+                            <div class="relative timeline-item pl-16 md:pl-0 md:pr-16">
+                                <div class="md:text-right mb-4 md:mb-0 md:absolute md:left-0 md:top-0 md:w-2/5 pr-8">
+                                    <h3 class="text-2xl font-bold text-[#FFD700]">Q3 2023</h3>
+                                    <p class="text-lg">Pilot Development</p>
+                                </div>
+                                <div class="md:ml-auto md:w-2/5 md:pl-8">
+                                    <div class="p-6 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Core platform architecture</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Basic AI mentor integration</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Initial blockchain verification</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 top-0 w-8 h-8 rounded-full bg-[#FFD700] border-4 border-[#0A0F24] transform -translate-x-1/2 flex items-center justify-center">
+                                    <div class="w-4 h-4 rounded-full bg-[#0A0F24]"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Q4 2023 -->
+                            <div class="relative timeline-item pl-16 md:pl-0 md:pr-16">
+                                <div class="md:text-left mb-4 md:mb-0 md:absolute md:right-0 md:top-0 md:w-2/5 pl-8">
+                                    <h3 class="text-2xl font-bold text-[#00B4FF]">Q4 2023</h3>
+                                    <p class="text-lg">NITDA Pilot Launch</p>
+                                </div>
+                                <div class="md:mr-auto md:w-2/5 md:pr-8">
+                                    <div class="p-6 bg-[#1A1F3D] rounded-xl border border-[#00B4FF]/30">
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Limited deployment at NCAIR</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>First cohort knowledge capture</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Feedback collection</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 top-0 w-8 h-8 rounded-full bg-[#00B4FF] border-4 border-[#0A0F24] transform -translate-x-1/2 flex items-center justify-center">
+                                    <div class="w-4 h-4 rounded-full bg-[#0A0F24]"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Q1 2024 -->
+                            <div class="relative timeline-item pl-16 md:pl-0 md:pr-16">
+                                <div class="md:text-right mb-4 md:mb-0 md:absolute md:left-0 md:top-0 md:w-2/5 pr-8">
+                                    <h3 class="text-2xl font-bold text-[#FFD700]">Q1 2024</h3>
+                                    <p class="text-lg">National Expansion</p>
+                                </div>
+                                <div class="md:ml-auto md:w-2/5 md:pl-8">
+                                    <div class="p-6 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Deploy to 5 additional hubs</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Mobile app launch</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#FFD700] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>Government integration</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 top-0 w-8 h-8 rounded-full bg-[#FFD700] border-4 border-[#0A0F24] transform -translate-x-1/2 flex items-center justify-center">
+                                    <div class="w-4 h-4 rounded-full bg-[#0A0F24]"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Q2 2024 -->
+                            <div class="relative timeline-item pl-16 md:pl-0 md:pr-16">
+                                <div class="md:text-left mb-4 md:mb-0 md:absolute md:right-0 md:top-0 md:w-2/5 pl-8">
+                                    <h3 class="text-2xl font-bold text-[#00B4FF]">Q2 2024</h3>
+                                    <p class="text-lg">Full Ecosystem Integration</p>
+                                </div>
+                                <div class="md:mr-auto md:w-2/5 md:pr-8">
+                                    <div class="p-6 bg-[#1A1F3D] rounded-xl border border-[#00B4FF]/30">
+                                        <ul class="space-y-3">
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>NYSC nationwide rollout</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>University partnerships</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <div class="w-5 h-5 rounded-full bg-[#00B4FF] flex items-center justify-center mr-3 mt-1"></div>
+                                                <span>African expansion begins</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="absolute left-0 md:left-1/2 top-0 w-8 h-8 rounded-full bg-[#00B4FF] border-4 border-[#0A0F24] transform -translate-x-1/2 flex items-center justify-center">
+                                    <div class="w-4 h-4 rounded-full bg-[#0A0F24]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-16 p-8 bg-gradient-to-r from-[#1A1F3D] to-[#0A0F24] rounded-xl border border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-[#FFD700] mb-4">Long-Term Vision (2025-2030)</h3>
+                        <p class="text-xl mb-6">Establish 5IRE ULA as Africa's premier tech knowledge preservation system, integrated with all major educational institutions and government digital initiatives across the continent.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                                        <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">Pan-African Deployment</h4>
+                                <p class="text-sm">Integration with 15+ African nations' digital education systems</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">10M+ Developers</h4>
+                                <p class="text-sm">Trained through the expanded ecosystem</p>
+                            </div>
+                            <div class="p-5 bg-[#0A0F24] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">UN Recognition</h4>
+                                <p class="text-sm">As model for digital education preservation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">9</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">Our Team</h2>
+                </div>
+                
+                <div class="section-card p-10">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="team-card p-6 rounded-xl text-center">
+                            <div class="w-32 h-32 rounded-full bg-[#1A1F3D] mx-auto mb-4 overflow-hidden border-4 border-[#00B4FF]">
+                                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">Dr. Amina Mohammed</h3>
+                            <p class="text-[#00B4FF] mb-4">Blockchain Architect</p>
+                            <p class="text-sm">Former NITDA technical lead with 15 years in distributed systems</p>
+                        </div>
+                        <div class="team-card p-6 rounded-xl text-center">
+                            <div class="w-32 h-32 rounded-full bg-[#1A1F3D] mx-auto mb-4 overflow-hidden border-4 border-[#FFD700]">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">Obinna Eze</h3>
+                            <p class="text-[#FFD700] mb-4">AI Research Lead</p>
+                            <p class="text-sm">PhD in NLP from University of Lagos, specializes in African dialects</p>
+                        </div>
+                        <div class="team-card p-6 rounded-xl text-center">
+                            <div class="w-32 h-32 rounded-full bg-[#1A1F3D] mx-auto mb-4 overflow-hidden border-4 border-[#00B4FF]">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member" class="w-full h-full object-cover">
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">Fatima Abubakar</h3>
+                            <p class="text-[#00B4FF] mb-4">Educational Director</p>
+                            <p class="text-sm">Designed curriculum for 50+ Nigerian tech training programs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 p-8 bg-[#1A1F3D] rounded-xl border border-[#FFD700]/30">
+                        <h3 class="text-2xl font-bold text-center mb-6">Partners & Collaborators</h3>
+                        <div class="flex flex-wrap justify-center gap-8">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/NITDA_logo.png/320px-NITDA_logo.png" alt="NITDA" class="h-12">
+                            <img src="https://ncair.gov.ng/wp-content/uploads/2022/05/NCAIR-Logo.png" alt="NCAIR" class="h-12">
+                            <img src="https://5ire.org/wp-content/uploads/2022/03/5ire-logo.svg" alt="5IRE" class="h-12">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Africa_Union_logo.svg/320px-Africa_Union_logo.svg.png" alt="African Union" class="h-12">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- References & Contact -->
+            <section>
+                <div class="flex items-center mb-12">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-6 shadow-lg tech-glow">
+                        <span class="text-2xl font-bold text-[#0A0F24]">10</span>
+                    </div>
+                    <h2 class="text-4xl font-bold glow-text">References & Contact</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="section-card p-10">
+                        <h3 class="text-3xl font-bold mb-6">Research References</h3>
+                        <div class="space-y-6">
+                            <div class="reference-item p-5 bg-[#1A1F3D] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">1. Blockchain in African Education</h4>
+                                <p class="text-sm mb-2">Journal of African Digital Transformation, 2022</p>
+                                <a href="#" class="text-[#00B4FF] text-sm hover:underline">View Study →</a>
+                            </div>
+                            <div class="reference-item p-5 bg-[#1A1F3D] rounded-lg border border-[#FFD700]/30">
+                                <h4 class="text-lg font-bold mb-2">2. AI for Localized Learning</h4>
+                                <p class="text-sm mb-2">NITDA White Paper, 2023</p>
+                                <a href="#" class="text-[#FFD700] text-sm hover:underline">View Paper →</a>
+                            </div>
+                            <div class="reference-item p-5 bg-[#1A1F3D] rounded-lg border border-[#00B4FF]/30">
+                                <h4 class="text-lg font-bold mb-2">3. Nigerian Developer Ecosystem</h4>
+                                <p class="text-sm mb-2">Google Africa Developer Report, 2023</p>
+                                <a href="#" class="text-[#00B4FF] text-sm hover:underline">View Report →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-card p-10">
+                        <h3 class="text-3xl font-bold mb-6">Contact Our Team</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Full Name</label>
+                                <input type="text" class="w-full bg-[#1A1F3D] border border-[#00B4FF]/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00B4FF]">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Organization</label>
+                                <input type="text" class="w-full bg-[#1A1F3D] border border-[#FFD700]/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#FFD700]">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Message</label>
+                                <textarea rows="4" class="w-full bg-[#1A1F3D] border border-[#00B4FF]/50 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#00B4FF]"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] text-[#0A0F24] font-bold py-3 px-6 rounded-lg hover:opacity-90 transition-all">
+                                Send Inquiry
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-[#0A0F24] border-t border-[#1A1F3D] py-12 mt-20">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <div class="flex items-center mb-6">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#FFD700] to-[#00B4FF] flex items-center justify-center mr-4">
+                                <span class="text-lg font-bold text-[#0A0F24]">5</span>
+                            </div>
+                            <h3 class="text-xl font-bold">5IRE ULA</h3>
+                        </div>
+                        <p class="text-sm text-[#A0A8C0]">A 5IRE and NITDA/NCAIR initiative for sustainable tech education in Africa.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                        <ul class="space-y-3">
+                            <li><a href="#" class="text-[#A0A8C0] hover:text-[#00B4FF] transition-colors">Platform Demo</a></li>
+                            <li><a href="#" class="text-[#A0A8C0] hover:text-[#FFD700] transition-colors">Developer Docs</a></li>
+                            <li><a href="#" class="text-[#A0A8C0] hover:text-[#00B4FF] transition-colors">GitHub Repository</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Institutions</h4>
+                        <ul class="space-y-3">
+                            <li><a href="https://nitda.gov.ng" class="text-[#A0A8C0] hover:text-[#FFD700] transition-colors">NITDA</a></li>
+                            <li><a href="https://ncair.gov.ng" class="text-[#A0A8C0] hover:text-[#00B4FF] transition-colors">NCAIR</a></li>
+                            <li><a href="https://5ire.org" class="text-[#A0A8C0] hover:text-[#FFD700] transition-colors">5IRE Chain</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Connect</h4>
+                        <div class="flex space-x-4 mb-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-[#1A1F3D] flex items-center justify-center hover:bg-[#00B4FF] transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-[#1A1F3D] flex items-center justify-center hover:bg-[#FFD700] transition-colors">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-[#1A1F3D] flex items-center justify-center hover:bg-[#00B4FF] transition-colors">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <p class="text-sm text-[#A0A8C0]">nuhumuhammaddatti@gmail.com</p>
+                    </div>
+                </div>
+                <div class="border-t border-[#1A1F3D] mt-12 pt-8 text-center text-sm text-[#A0A8C0]">
+                    <p>© 2025 5IRE ULA Initiative. All rights reserved. | Developed with ♥ for Africa's digital future</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            // Animated counter for impact numbers
+            const counters = document.querySelectorAll('.impact-number');
+            const speed = 200;
+            
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if(count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+                
+                function updateCount() {
+                    const count = +counter.innerText;
+                    if(count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
